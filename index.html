@@ -12,7 +12,7 @@
   <!-- OGP -->
   <meta property="og:url" content="ページのURL">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="ページのアイキャッチ画像のURL">
+  <meta property="og:image" content="ページのアイキャッチ画像のURL /img/ogp-img.jpg">
   <meta property="og:title" content="レザー工房 leatherRollin'">
   
   <!-- twitter -->
@@ -26,154 +26,196 @@
 
 </head>
 <body>
+
+  <!--=================== header ===================-->
   <header>
-    <div><img src="img/leather-rollin-logo.png" alt=""><h1>leather Rollin'</h1></div>
-    <nav>
-      <ul>
-        <li><a href="#">Top</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">OnlineShop</a></li>
-        <li><a href="#"><img src="img/insta_logo.png" alt=""></a></li>
-      </ul>
-    </nav>
+    <div class="contentsBlock"><!--コンテンツ幅用のdiv。横幅をPC70％、SPは90％でとりたいので。sectionと分ける理由としては、背景など横幅いっぱいに入れたいものがあるので、それと分けるため。意味があるものではないと思ったのでdivにしました-->
+      <div><img src="img/leather-rollin-logo.png" alt=""><h1>leather Rollin'</h1></div>
+      <nav>
+        <ul>
+          <li><a href="#">Top</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">OnlineShop</a></li>
+          <li><a href="#"><img src="img/insta_logo.png" alt=""></a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
 
 
   <main>
+    <!--=================== main--FV ===================-->
     <section>
       <p>leather Rollin'</p>
       <p>世界にひとつだけ、<wbr>自分だけのレザー</p>
     </section>
     
+
+    <!--=================== main--NEWS ===================-->
     <section>
-      <h2>News</h2>
-      <ul>
-        <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
-        <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
-        <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
-        <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
-      </ul>
-      <a href="#">Vew More</a>
+      <div class="contentsBlock"> 
+        <h2>News</h2>
+        <ul>
+          <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
+          <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
+          <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
+          <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
+        </ul>
+        <a href="#">Vew More</a>
+      </div>
     </section>
     
+
+    <!--=================== main--ONLINESHOP ===================-->
     <section>
-      <h2>OnlineShop</h2>
-      <p>ひとつひとつ丁寧に<br>手づくりしています。</p>
-      <a href="#">OnlineShop <span>>></span></a>
+      <div class="contentsBlock">
+        <h2>OnlineShop</h2>
+        <p>ひとつひとつ丁寧に<br>手づくりしています。</p>
+        <a href="#">OnlineShop <span>>></span></a>
+      </div>
+
+      <ul>
+        <li><img src="img/onlineshop.jpg" alt=""></li>
+        <li><img src="img/onlineshop02.jpg" alt=""></li>
+        <li><img src="img/onlineshop03.jpg" alt=""></li>
+      </ul>
     </section>
 
+
+    <!--=================== main--GALLERY ===================-->
     <section>
+      <div class="contentsBlock">
       <h2>Gallery</h2>
-
-      <ul>
-        <li><img src="img/gallery01.jpg" alt=""></li>
-        <li><img src="img/gallery02.jpg" alt=""></li>
-        <li><img src="img/gallery03.jpg" alt=""></li>
-        <li><img src="img/gallery04.jpg" alt=""></li>
-        <li><img src="img/gallery05.jpg" alt=""></li>
-        <li><img src="img/gallery06.jpg" alt=""></li>
-      </ul>
+        <ul>
+          <li><img src="img/gallery01.jpg" alt=""></li>
+          <li><img src="img/gallery02.jpg" alt=""></li>
+          <li><img src="img/gallery03.jpg" alt=""></li>
+          <li><img src="img/gallery04.jpg" alt=""></li>
+          <li><img src="img/gallery05.jpg" alt=""></li>
+          <li><img src="img/gallery06.jpg" alt=""></li>
+        </ul>
+      </div>
     </section>
 
+
+    <!--=================== main--ABOUT ===================-->
     <section>
-      <section>
-        <p>Hirose Minobu</p>
-        <p>廣瀬　実伸</p>
-      </section>
-      <hr>
-      <section>
+      <div class="contentsBlock">
+        <h2>About</h2>
         <section>
-          <dl>
-            <dt><time datetime="2003">2003年</time></dt>
-            <dd><p>名古屋市西区「革工房うえすと」の<wbr>近藤氏の元に入門。</p></dd>
-
-            <dt><time datetime="2009">20099年</time></dt>
-            <dd><p>ブランドリペアの会社に勤め、<wbr>革修理の技術を学びつつ、<wbr>自身の制作活動を続ける。</p></dd>
-
-            <dt><time datetime="2018">2018年</time></dt>
-            <dd><p>結婚、出産を経て子育てしながら<wbr>マルシェ等に出店。<wbr>ワークショップを開催。</p></dd>
-
-            <dt><time datetime="2023">2023年</time></dt>
-            <dd><p>日本ライン花木センター内にて<wbr>leatherRollin'として初の工房オープン。</p></dd>
-
-            <dt><time datetime="2025">2025年</time></dt>
-            <dd><p>2024年をもって店舗での営業を終了。<wbr>オンライン販売を中心とした運営に移行。</p></dd>
-          </dl>
-          <section>
-            <p>
-            かけがえのない動物から頂いた素材に誠実に向き合い、じっくり手をかけて、愛されるように作品を創ります。<br>
-            牛や山羊が生きていた時に負った怪我による傷、皮膚のシワ、血管の浮き出た部分も作品に使用します。<br>
-            その丈夫さから生命力を感じ、身に着けることに誇りをもっていただけるように制作活動をしています。
-            </p>
-          </section>
+          <p>Hirose Minobu</p>
+          <p>廣瀬　実伸</p>
         </section>
-        <img src="img/minobu03.jpg" alt="">
-      </section>
+        <hr>
+        <section>
+          <section>
+            <dl>
+              <dt><time datetime="2003">2003年</time></dt>
+              <dd><p>名古屋市西区「革工房うえすと」の<wbr>近藤氏の元に入門。</p></dd>
+
+              <dt><time datetime="2009">20099年</time></dt>
+              <dd><p>ブランドリペアの会社に勤め、<wbr>革修理の技術を学びつつ、<wbr>自身の制作活動を続ける。</p></dd>
+
+              <dt><time datetime="2018">2018年</time></dt>
+              <dd><p>結婚、出産を経て子育てしながら<wbr>マルシェ等に出店。<wbr>ワークショップを開催。</p></dd>
+
+              <dt><time datetime="2023">2023年</time></dt>
+              <dd><p>日本ライン花木センター内にて<wbr>leatherRollin'として初の工房オープン。</p></dd>
+
+              <dt><time datetime="2025">2025年</time></dt>
+              <dd><p>2024年をもって店舗での営業を終了。<wbr>オンライン販売を中心とした運営に移行。</p></dd>
+            </dl>
+            <section>
+              <p>
+              かけがえのない動物から頂いた素材に誠実に向き合い、じっくり手をかけて、愛されるように作品を創ります。<br>
+              牛や山羊が生きていた時に負った怪我による傷、皮膚のシワ、血管の浮き出た部分も作品に使用します。<br>
+              その丈夫さから生命力を感じ、身に着けることに誇りをもっていただけるように制作活動をしています。
+              </p>
+            </section>
+          </section>
+          <img src="img/minobu03.jpg" alt="">
+        </section>
+      </div>
     </section>
 
+
+
+    <!--=================== main--CONTACT ===================-->
     <section>
-      <h2>Contact</h2>
+      <div class="contentsBlock">
+        <h2>Contact</h2>
 
-      <form action=""><!-- actionやmethodなどどうしても分かりません。。-->
+        <form action=""><!-- actionやmethodなどどうしても分かりません。。-->
 
-        <label for="name">
-          <p>Name</p>
-          <input type="text" name="name" placeholder="（例）山田　太郎" required>
-        </label>
+          <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="（例）山田　太郎" required>
+          </div>
 
-        <label for="email">
-          <p>E-mail</p>
-          <input type="text" type="email" name="email" placeholder="（例）aaa@aaa.co.jp" required>
-        </label>
+          <div>
+            <label for="email">E-mail</label>
+            <input type="text" type="email" name="email" id="email" placeholder="（例）aaa@aaa.co.jp" required>
+          </div>
 
-        <label for="tel">
-          <p>Tel</p>
-          <input type="text" type="tel" name="tel" placeholder="（例）000-0000-0000" required>
-        </label>
+          <div>
+            <label for="tel">Tel</label>
+            <input type="text" type="tel" name="tel" id="tel" placeholder="（例）000-0000-0000" required>
+          </div>
 
-        <label for="title">
-          <p>Title</p>
-          <select name="title" id="" required>
-            <option value="">選択してください</option>
-            <option value="ワークショップのご依頼">ワークショップのご依頼</option>
-            <option value="出店のご依頼">出店のご依頼</option>
-            <option value="製作のご依頼">製作のご依頼</option>
-            <option value="その他">その他</option>
-          </select>
-        </label>
+          <div>
+            <label for="title">Title</label>
+            <select name="title" id="title" required>
+              <option value="">選択してください</option>
+              <option value="ワークショップのご依頼">ワークショップのご依頼</option>
+              <option value="出店のご依頼">出店のご依頼</option>
+              <option value="製作のご依頼">製作のご依頼</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
 
-        <label for="message">
-          <p>Message</p>
-          <textarea name="message" id="" placeholder="お問い合わせ詳細をご入力ください" required></textarea>
-        </label>
+          <div>
+            <label for="message">Message</label>
+            <textarea name="message" id="message" placeholder="お問い合わせ詳細をご入力ください" required></textarea>
+          </div>
+          
 
-        <button type="submit" name="submit" value="send">Send</button>
-      </form> 
+          <button type="submit" name="submit" value="send">Send</button>
+        </form> 
+      </div>
     </section>
 
+
+
+    <!--=================== main--BANNER ===================-->
     <section>
-      <ul>
-        <li><a href="#"><img src="img/bn_onlineshop.jpg" alt=""></a></li>
-        <li><a href="#"><img src="img/bn_instagram.jpg" alt=""></a></li>
-      </ul>
+      <div class="contentsBlock">
+        <ul>
+          <li><a href="#"><img src="img/bn_onlineshop.jpg" alt=""></a></li>
+          <li><a href="#"><img src="img/bn_instagram.jpg" alt=""></a></li>
+        </ul>
+      </div>
     </section>
   </main>
+
+
+  <!--=================== Footer ===================-->
   <footer>
-    <div>
-      <div><img src="img/leather-rollin-logo.png" alt=""><p>leather workshop</p></div>
-      <div><p>leather Rollin'</p></div>
+    <div class="contentsBlock">
+      <div>
+        <div><img src="img/leather-rollin-logo.png" alt=""><p>leather workshop</p></div>
+        <div><p>leather Rollin'</p></div>
+      </div>
+
+      <a href="#">ご注文やご依頼などは<wbr>お気軽に<span>Contact</span><wbr>よりご連絡ください。</a>
+
+      <small>copyright ©leatherRollin' All Right Reserved.</small>
+
+      <a href="#">▲<br>Topへ</a>
     </div>
-
-    <a href="#">ご注文やご依頼などは<wbr>お気軽に<span>Contact</span><wbr>よりご連絡ください。</a>
-
-    <small>copyright ©leatherRollin' All Right Reserved.</small>
-
-    <a href="#">▲<br>Topへ</a>
-    
   </footer>
 </body>
   <script type="text/javascript" src="js/main.js"></script>
