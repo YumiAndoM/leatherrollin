@@ -30,7 +30,7 @@
   <!--=================== header ===================-->
   <header>
     <div class="contentsBlock"><!--コンテンツ幅用のdiv。横幅をPC70％、SPは90％でとりたいので。sectionと分ける理由としては、背景など横幅いっぱいに入れたいものがあるので、それと分けるため。意味があるものではないと思ったのでdivにしました-->
-      <div><img src="img/leather-rollin-logo.png" alt=""><h1>leather Rollin'</h1></div>
+      <div><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><h1>leather Rollin'</h1></div>
       <nav>
         <ul>
           <li><a href="#">Top</a></li>
@@ -63,7 +63,7 @@
           <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
           <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
           <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
-          <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
+          <li><a href="#"><img src="img/kari.jpg" alt=""></a></li><!--ワードプレスでインスタ画像を連携させてインスタ画像が出るようにしたいと思っています。そのためいったんaltなしにしています-->
         </ul>
         <a href="#">Vew More</a>
       </div>
@@ -79,9 +79,9 @@
       </div>
 
       <ul>
-        <li><img src="img/onlineshop.jpg" alt=""></li>
-        <li><img src="img/onlineshop02.jpg" alt=""></li>
-        <li><img src="img/onlineshop03.jpg" alt=""></li>
+        <li><img src="img/onlineshop.jpg" alt="レザー製品画像1"></li>
+        <li><img src="img/onlineshop02.jpg" alt="レザー製品画像2"></li>
+        <li><img src="img/onlineshop03.jpg" alt="レザー製品画像3"></li>
       </ul>
     </section>
 
@@ -91,12 +91,12 @@
       <div class="contentsBlock">
       <h2>Gallery</h2>
         <ul>
-          <li><img src="img/gallery01.jpg" alt=""></li>
-          <li><img src="img/gallery02.jpg" alt=""></li>
-          <li><img src="img/gallery03.jpg" alt=""></li>
-          <li><img src="img/gallery04.jpg" alt=""></li>
-          <li><img src="img/gallery05.jpg" alt=""></li>
-          <li><img src="img/gallery06.jpg" alt=""></li>
+          <li><img src="img/gallery01.jpg" alt="レザー製品製作中"></li>
+          <li><img src="img/gallery02.jpg" alt="ラッピング"></li>
+          <li><img src="img/gallery03.jpg" alt="レザー製品製作中"></li>
+          <li><img src="img/gallery04.jpg" alt="ワークショップ風景"></li>
+          <li><img src="img/gallery05.jpg" alt="レザー製品製作中"></li>
+          <li><img src="img/gallery06.jpg" alt="レザー製品ミシン作業"></li>
         </ul>
       </div>
     </section>
@@ -106,39 +106,45 @@
     <section>
       <div class="contentsBlock">
         <h2>About</h2>
-        <section>
-          <p>Hirose Minobu</p>
+        <div>
+          <p aria-hidden="true">Hirose Minobu</p>
           <p>廣瀬　実伸</p>
-        </section>
+        </div>
         <hr>
-        <section>
-          <section>
-            <dl>
-              <dt><time datetime="2003">2003年</time></dt>
-              <dd><p>名古屋市西区「革工房うえすと」の<wbr>近藤氏の元に入門。</p></dd>
-
-              <dt><time datetime="2009">20099年</time></dt>
-              <dd><p>ブランドリペアの会社に勤め、<wbr>革修理の技術を学びつつ、<wbr>自身の制作活動を続ける。</p></dd>
-
-              <dt><time datetime="2018">2018年</time></dt>
-              <dd><p>結婚、出産を経て子育てしながら<wbr>マルシェ等に出店。<wbr>ワークショップを開催。</p></dd>
-
-              <dt><time datetime="2023">2023年</time></dt>
-              <dd><p>日本ライン花木センター内にて<wbr>leatherRollin'として初の工房オープン。</p></dd>
-
-              <dt><time datetime="2025">2025年</time></dt>
-              <dd><p>2024年をもって店舗での営業を終了。<wbr>オンライン販売を中心とした運営に移行。</p></dd>
-            </dl>
-            <section>
-              <p>
-              かけがえのない動物から頂いた素材に誠実に向き合い、じっくり手をかけて、愛されるように作品を創ります。<br>
-              牛や山羊が生きていた時に負った怪我による傷、皮膚のシワ、血管の浮き出た部分も作品に使用します。<br>
-              その丈夫さから生命力を感じ、身に着けることに誇りをもっていただけるように制作活動をしています。
-              </p>
-            </section>
-          </section>
-          <img src="img/minobu03.jpg" alt="">
-        </section>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <th><time datetime="2003">2003年</time></th>
+                <td><p>名古屋市西区「革工房うえすと」の<wbr>近藤氏の元に入門。</p></td>
+              </tr>
+              <tr>
+                <th><time datetime="2009">20099年</time></th>
+                <td><p>ブランドリペアの会社に勤め、<wbr>革修理の技術を学びつつ、<wbr>自身の制作活動を続ける。</p></td>
+              </tr>
+              <tr>
+                <th><time datetime="2018">2018年</time></th>
+                <td><p>結婚、出産を経て子育てしながら<wbr>マルシェ等に出店。<wbr>ワークショップを開催。</p></td>
+              </tr>
+              <tr>
+                <th><time datetime="2023">2023年</time></th>
+                <td><p>日本ライン花木センター内にて<wbr>leatherRollin'として初の工房オープン。</p></td>
+              </tr>
+              <tr>
+                <th><time datetime="2025">2025年</time></th>
+                <td><p>2024年をもって店舗での営業を終了。<wbr>オンライン販売を中心とした運営に移行。</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            かけがえのない動物から頂いた素材に誠実に向き合い、じっくり手をかけて、愛されるように作品を創ります。<br>
+            牛や山羊が生きていた時に負った怪我による傷、皮膚のシワ、血管の浮き出た部分も作品に使用します。<br>
+            その丈夫さから生命力を感じ、身に着けることに誇りをもっていただけるように制作活動をしています。
+          </p>
+        </div>
+        <div>
+          <img src="img/minobu03.jpg" alt="廣瀬実伸の画像">
+        </div>
       </div>
     </section>
 
@@ -149,7 +155,7 @@
       <div class="contentsBlock">
         <h2>Contact</h2>
 
-        <form action=""><!-- actionやmethodなどどうしても分かりません。。-->
+        <form method="post"><!-- methodは勉強して理解したつもりですが、actionが、ワードプレスのプラグインを使った場合どう入れるべきか悩んでいます。。-->
 
           <div>
             <label for="name">Name</label>
@@ -194,8 +200,8 @@
     <section>
       <div class="contentsBlock">
         <ul>
-          <li><a href="#"><img src="img/bn_onlineshop.jpg" alt=""></a></li>
-          <li><a href="#"><img src="img/bn_instagram.jpg" alt=""></a></li>
+          <li><a href="#"><img src="img/bn_onlineshop.jpg" alt="オンラインショップへ"></a></li>
+          <li><a href="#"><img src="img/bn_instagram.jpg" alt="Instagramへ"></a></li>
         </ul>
       </div>
     </section>
@@ -206,7 +212,7 @@
   <footer>
     <div class="contentsBlock">
       <div>
-        <div><img src="img/leather-rollin-logo.png" alt=""><p>leather workshop</p></div>
+        <div><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><p>leather workshop</p></div>
         <div><p>leather Rollin'</p></div>
       </div>
 
