@@ -168,6 +168,7 @@ header nav ul li a img {
 .onlineWrapper .online--link {
   text-decoration: none;
   position: absolute;
+  z-index: 10;
   background-color: #ffffff;
   color: #333333;
   border: 1px solid #333333;

@@ -209,6 +209,7 @@ header {
     &--link {
       text-decoration: none;
       position: absolute;
+      z-index: 10;
       background-color: $cWhite;
       color: $cBlack;
       border: 1px solid $cBlack;
