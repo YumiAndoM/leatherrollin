@@ -131,6 +131,7 @@ header nav ul li a img {
 .onlineWrapper {
   position: relative;
   height: 100% !important;
+  display: block;
 }
 .onlineWrapper .contentsBlock {
   position: absolute;
