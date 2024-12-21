@@ -22,23 +22,23 @@
   <link rel="icon" href="img/leather-rollin-logo.ico" sizes="16x16 32x32 48x48">
 
   <!-- css -->
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 <body>
 
   <!--=================== header ===================-->
   <header>
-    <div class="contentsBlock"><!--コンテンツ幅用のdiv。横幅をPC70％、SPは90％でとりたいので。sectionと分ける理由としては、背景など横幅いっぱいに入れたいものがあるので、それと分けるため。意味があるものではないと思ったのでdivにしました-->
-      <div><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><h1>leather Rollin'</h1></div>
+    <div class="contentsBlock flexBlock"><!--コンテンツ幅用のdiv。横幅をPC70％、SPは90％でとりたいので。sectionと分ける理由としては、背景など横幅いっぱいに入れたいものがあるので、それと分けるため。意味があるものではないと思ったのでdivにしました-->
+      <div class="header--logoGroup"><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><h1>leather Rollin'</h1></div>
       <nav>
         <ul>
-          <li><a href="#">Top</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Gallery</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">OnlineShop</a></li>
+          <li><a href="#top">Top</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#onlineshop">OnlineShop</a></li>
           <li><a href="#"><img src="img/insta_logo.png" alt=""></a></li>
         </ul>
       </nav>
@@ -49,40 +49,45 @@
 
   <main>
     <!--=================== main--FV ===================-->
-    <section>
-      <p>leather Rollin'</p>
-      <p>世界にひとつだけ、<wbr>自分だけのレザー</p>
+    <section class="fv" id="top">
+      <p class="fv--shopName">leather Rollin'</p>
+      <p class="fv--catchCopy">世界にひとつだけ、<wbr>自分だけのレザー</p>
     </section>
     
 
     <!--=================== main--NEWS ===================-->
-    <section>
-      <div class="contentsBlock"> 
-        <h2>News</h2>
-        <ul>
-          <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
-          <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
-          <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
-          <li><a href="#"><img src="img/kari.jpg" alt=""></a></li><!--ワードプレスでインスタ画像を連携させてインスタ画像が出るようにしたいと思っています。そのためいったんaltなしにしています-->
-        </ul>
-        <a href="#">Vew More</a>
+    <section class="newsWrapper">
+      <div class="contentsBlock">
+        <div class="newsBlock">
+          <h2>News</h2>
+          <ul>
+            <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/kari.jpg" alt=""></a></li><!--ワードプレスでインスタ画像を連携させてインスタ画像が出るようにしたいと思っています。そのためいったんaltなしにしています-->
+          </ul>
+        </div>
+        <a href="#" class="newsBlock--vewMore">Vew More</a>
       </div>
     </section>
     
 
     <!--=================== main--ONLINESHOP ===================-->
     <section>
-      <div class="contentsBlock">
-        <h2>OnlineShop</h2>
-        <p>ひとつひとつ丁寧に<br>手づくりしています。</p>
-        <a href="#">OnlineShop <span>>></span></a>
-      </div>
+      <div class="onlineWrapper">
+        <div class="contentsBlock">
+          <div class="textCenterParent"><h2>OnlineShop</h2></div>
+          <div class="online--catchCopy--block"><p class="online--catchCopy">ひとつひとつ丁寧に<br>手づくりしています。</p></div>
+          
+        </div>
 
-      <ul>
-        <li><img src="img/onlineshop.jpg" alt="レザー製品画像1"></li>
-        <li><img src="img/onlineshop02.jpg" alt="レザー製品画像2"></li>
-        <li><img src="img/onlineshop03.jpg" alt="レザー製品画像3"></li>
-      </ul>
+        <ul>
+          <li><img src="img/onlineshop.jpg" alt="レザー製品画像1"></li>
+          <!-- <li><img src="img/onlineshop02.jpg" alt="レザー製品画像2"></li>
+          <li><img src="img/onlineshop03.jpg" alt="レザー製品画像3"></li>
+        </ul> -->
+        <a href="#" class="online--link">OnlineShop <span>>></span></a>
+      </div>
     </section>
 
 
@@ -92,7 +97,6 @@
       <h2>Gallery</h2>
         <ul>
           <li><img src="img/gallery01.jpg" alt="レザー製品製作中"></li>
-          <li><img src="img/gallery02.jpg" alt="ラッピング"></li>
           <li><img src="img/gallery03.jpg" alt="レザー製品製作中"></li>
           <li><img src="img/gallery04.jpg" alt="ワークショップ風景"></li>
           <li><img src="img/gallery05.jpg" alt="レザー製品製作中"></li>

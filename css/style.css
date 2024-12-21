@@ -1,0 +1,241 @@
+/*----------------------------------------
+base
+----------------------------------------*/
+/*------------------common--------------------*/
+.contentsBlock {
+  width: 70%;
+  max-width: 1200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  margin-bottom: 8rem !important;
+  width: 100%;
+}
+
+h2 {
+  font-size: 3rem !important;
+}
+
+.textCenterParent {
+  text-align: center;
+}
+
+/*------------------header--------------------*/
+header {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background-color: aqua;
+  z-index: 1000;
+}
+header .flexBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .header--logoGroup {
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+header .header--logoGroup img {
+  width: 50px;
+}
+header .header--logoGroup h1 {
+  font-size: 2rem;
+  padding-left: 1rem;
+}
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: #333333;
+  padding: 100% 1rem;
+  box-sizing: border-box;
+}
+header nav ul li a img {
+  width: 30px;
+}
+
+/*------------------main--FV--------------------*/
+.fv {
+  background-image: url(../img/fv-slider01.jpg);
+  height: 100vh;
+}
+.fv--shopName {
+  font-size: 4rem;
+  padding-top: 7rem;
+  text-align: center;
+  letter-spacing: 0.2rem;
+  color: #ffffff;
+}
+.fv--catchCopy {
+  text-align: center;
+  color: #ffffff;
+  padding-top: 20vh;
+  height: 70px;
+  display: block;
+}
+
+/*------------------main--news--------------------*/
+.newsWrapper {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #999999 70%, #ffffff 30%);
+}
+
+.contentsBlock {
+  position: relative;
+  padding-bottom: 3rem;
+  height: 100%;
+}
+
+.newsBlock {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.newsBlock h2 {
+  padding-right: 2rem;
+}
+.newsBlock ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.newsBlock ul li img {
+  width: 90%;
+  margin-left: 10%;
+}
+.newsBlock--vewMore {
+  text-decoration: none;
+  display: inline-block;
+  -webkit-clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 10% 50%);
+          clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 10% 50%);
+  background-color: #333333;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(50%);
+  right: 0;
+}
+
+/*------------------main--onlineshop--------------------*/
+.onlineWrapper {
+  position: relative;
+  height: 100% !important;
+}
+.onlineWrapper .contentsBlock {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.onlineWrapper h2 {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%) translateX(-50%);
+  padding: 1rem 2rem;
+  left: 50%;
+}
+.onlineWrapper .online--catchCopy {
+  display: inline;
+  transform: translateY(5rem);
+  line-height: 3.2;
+  font-size: 1.2rem;
+  background-color: #ffffff;
+  padding: 0.6rem 1rem;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  letter-spacing: 0.1rem;
+  vertical-align: middle;
+}
+.onlineWrapper .online--catchCopy--block {
+  margin-top: 15rem;
+}
+.onlineWrapper .online--link {
+  text-decoration: none;
+  position: absolute;
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #333333;
+  padding: 1rem;
+  letter-spacing: 0.1rem;
+  font-size: 1.4rem;
+  bottom: 0;
+  transform: translateY(50%) translateX(-50%);
+  left: 50%;
+}
+.onlineWrapper ul {
+  position: absolute;
+  z-index: 1;
+}
+.onlineWrapper ul li img {
+  width: 100%;
+  aspect-ratio: 10/5;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*----------------------------------------
+reset
+----------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

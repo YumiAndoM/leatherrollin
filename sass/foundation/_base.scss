@@ -1,0 +1,234 @@
+@use "../global" as *;
+
+
+/*----------------------------------------
+base
+----------------------------------------*/
+
+/*------------------common--------------------*/
+.contentsBlock {
+  width: 70%;
+  max-width: 1200px;
+  
+  @include marginCenter();
+}
+
+section {
+  margin-bottom: 8rem !important;
+  width: 100%;
+}
+
+h2 {
+  font-size: 3rem !important;
+}
+
+.textCenterParent {
+  text-align: center;
+}
+
+
+
+/*------------------header--------------------*/
+header {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background-color: aqua;
+  z-index: 1000;
+  
+
+  .flexBlock {
+    @include displayFlex;
+  }
+
+  .header {
+  &--logoGroup {
+    display: flex;
+    align-items: center;
+    height: 70px;
+
+      img {
+        width: 50px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  nav {
+    ul {
+      @include displayFlex;
+
+      li {
+        
+
+        a {
+          text-decoration: none;
+          color: $cBlack;
+          padding: 100% 1rem;
+          box-sizing: border-box;
+
+          img {
+            width: 30px;
+            
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+/*------------------main--FV--------------------*/
+
+.fv {
+  background-image: url(../img/fv-slider01.jpg);
+  height: 100vh;
+  
+  &--shopName {
+    font-size: 4rem;
+    padding-top: 7rem;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    color: $cWhite;
+  }
+
+  &--catchCopy {
+    text-align: center;
+    color: $cWhite;
+    padding-top: calc(100vh - 80vh);
+    height: 70px;
+    display: block;
+    
+  }
+}
+
+
+/*------------------main--news--------------------*/
+
+.newsWrapper {
+  width: 100%;
+  height: 100%;
+  
+  background: linear-gradient(to top, #999999 70%, #ffffff 30%); 
+}
+
+.contentsBlock {
+  position: relative;
+  padding-bottom: 3rem;
+  height: 100%;
+  //vewMoreを下側のラインに乗せるためのrelative
+}
+
+.newsBlock {
+  @include displayFlex($jC: flex-end);
+
+  h2 {
+    padding-right: 2rem;
+  }
+
+  ul {
+    @include displayFlex;
+
+    li {
+      img {
+        width: 90%;
+        margin-left: 10%;
+      }
+    }
+  }
+
+
+  &--vewMore {
+    text-decoration: none;
+    display: inline-block;
+    clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 10% 50%);
+    background-color: $cBlack;
+    color: $cWhite;
+    padding: 1rem 2rem;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    right: 0;
+  }
+}
+
+
+
+/*------------------main--onlineshop--------------------*/
+
+.onlineWrapper {
+  position: relative;
+  height: 100% !important;
+  //TODO:次の要素が下に重なってる…なぜだ…
+
+
+  .contentsBlock {
+    position: absolute;
+    z-index: 5;
+    @include positionCenter2;
+    // height: 100%;
+  }
+  
+  h2 {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $cWhite;
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%) translateX(-50%);
+    padding: 1rem 2rem;
+    left: 50%;
+  }
+
+  .online {
+    &--catchCopy {
+      display: inline;
+      transform: translateY(5rem);
+      line-height: 3.2;
+      font-size: 1.2rem;
+      background-color: $cWhite;
+      padding: 0.6rem 1rem;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      letter-spacing: 0.1rem;
+      vertical-align: middle;
+
+      &--block {
+        margin-top: 15rem;
+      }
+    }
+
+    &--link {
+      text-decoration: none;
+      position: absolute;
+      background-color: $cWhite;
+      color: $cBlack;
+      border: 1px solid $cBlack;
+      padding: 1rem;
+      letter-spacing: 0.1rem;
+      font-size: 1.4rem;
+      bottom: 0;
+      transform: translateY(50%) translateX(-50%);
+      left: 50%;
+    }
+  }
+
+  ul {
+    position: absolute;
+    z-index: 1;
+    li {
+      img {
+        width: 100%;
+        aspect-ratio: 10 / 5;
+        object-fit: cover;
+      }
+    }
+  }
+}
