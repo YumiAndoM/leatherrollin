@@ -6,20 +6,41 @@ base
 ----------------------------------------*/
 
 /*------------------common--------------------*/
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem;
+}
+
+body {
+  background-color: $backGround;
+}
+
 .contentsBlock {
-  width: 70%;
+  width: 100%;
   max-width: 1200px;
   
   @include marginCenter();
+
+  @include max(m) {
+    width: 100%;
+    max-width: 800px;
+  }
 }
 
 section {
   margin-bottom: 8rem !important;
   width: 100%;
-}
 
-h2 {
-  font-size: 3rem !important;
+  h2 {
+    @include fontFredericka;
+    font-size: 3.2rem;
+    letter-spacing: 0.2rem;
+
+    @include max(m) {
+      font-size: 2.4rem;
+    }
+  }
 }
 
 .textCenterParent {
@@ -28,12 +49,14 @@ h2 {
 
 
 
+
+
 /*------------------header--------------------*/
 header {
   position: fixed;
   width: 100%;
   height: 70px;
-  background-color: aqua;
+  background-color: $backGround;
   z-index: 1000;
   
 
@@ -54,6 +77,7 @@ header {
       h1 {
         font-size: 2rem;
         padding-left: 1rem;
+        @include fontFredericka;
       }
     }
   }
@@ -63,13 +87,14 @@ header {
       @include displayFlex;
 
       li {
-        
+        font-size: 1.2rem;
 
         a {
           text-decoration: none;
           color: $cBlack;
           padding: 100% 1rem;
           box-sizing: border-box;
+          @include fontFredericka;
 
           img {
             width: 30px;
@@ -115,7 +140,7 @@ header {
   width: 100%;
   height: 100%;
   
-  background: linear-gradient(to top, #999999 70%, #ffffff 30%); 
+  background: linear-gradient(to top, #999999 70%, $backGround 30%); 
 }
 
 .contentsBlock {
@@ -155,6 +180,7 @@ header {
     bottom: 0;
     transform: translateY(50%);
     right: 0;
+    @include fontFredericka;
   }
 }
 
@@ -166,7 +192,7 @@ header {
   position: relative;
   height: 100% !important;
   display: block;
-  //TODO:次の要素が下に重なってる…なぜだ…
+
 
 
   .contentsBlock {
@@ -174,13 +200,15 @@ header {
     z-index: 5;
     @include positionCenter2;
     // height: 100%;
+
+
   }
   
   h2 {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    background-color: $cWhite;
+    background-color: $backGround;
     position: absolute;
     top: 0;
     transform: translateY(-50%) translateX(-50%);
@@ -194,15 +222,26 @@ header {
       transform: translateY(5rem);
       line-height: 3.2;
       font-size: 1.2rem;
-      background-color: $cWhite;
+      background-color: $backGround;
       padding: 0.6rem 1rem;
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
       letter-spacing: 0.1rem;
-      vertical-align: middle;
+      // vertical-align: middle;
+      @include fontFredericka;
+
+      @include max(m) {
+        font-size: 1rem;
+        line-height: 2.6;
+        padding: 0.4rem 0.6rem;
+      }
 
       &--block {
         margin-top: 15rem;
+
+        @include max(m) {
+          margin-top: 10rem;
+        }
       }
     }
 
@@ -210,20 +249,21 @@ header {
       text-decoration: none;
       position: absolute;
       z-index: 10;
-      background-color: $cWhite;
+      background-color: $backGround;
       color: $cBlack;
       border: 1px solid $cBlack;
       padding: 1rem;
       letter-spacing: 0.1rem;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       bottom: 0;
       transform: translateY(50%) translateX(-50%);
       left: 50%;
+      @include fontFredericka;
     }
   }
 
   ul {
-    position: absolute;
+    // position: absolute;
     z-index: 1;
     li {
       img {
@@ -233,4 +273,360 @@ header {
       }
     }
   }
+}
+
+
+
+/*------------------main--gallery--------------------*/
+
+.galleryWrapper {
+  .contentsBlock {
+    position: relative;
+    border: 1px solid $cBlack;
+    padding: 4rem 2rem 3rem;
+    box-sizing: border-box;
+
+    h2 {
+      position: absolute;
+      top: 0;
+      transform: translateY(-50%);
+      left: 2rem;
+      background-color: $backGround;
+      padding: 1rem;
+    }
+
+    ul {
+      @include displayFlex($aI: flex-start);
+      flex-wrap: wrap;
+
+      li {
+        width: 32%;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+/*------------------main--about--------------------*/
+
+.aboutWrapper {
+  background-color: $cBlack;
+  padding: 5rem 0;
+
+  .contentsBlock {
+    border: 1px solid $cWhite;
+    position: relative;
+    box-sizing: border-box;
+    padding: 4rem 2rem 2rem;
+
+    &::before {
+      position: absolute;
+      content: "";
+      border: 1px solid $cWhite;
+      width: calc(100% - 30px);
+      height: calc(100% + 30px);
+      @include positionCenter;
+    }
+
+    h2 {
+      color: $cWhite;
+      position: absolute;
+      background-color: $cBlack;
+      padding: 1rem;
+      @include positionCenter($top:0, $left:50%, $tlY:-50%, $tlX:-50%);
+    }
+  }
+}
+
+.about {
+  &--flexBlock {
+    @include displayFlex;
+    position: relative; //beforeよりも上にもってくるためのrelative
+
+    @include max(m) {
+      flex-direction: column;
+    }
+  }
+
+  &--leftBlock {
+    padding-right: 1rem;
+
+    @include max(m) {
+      padding: 0;
+    }
+    p, time {
+      color: $cWhite;
+    }
+  }
+
+  &--nameBlock {
+    margin-bottom: 2rem;
+
+    &--en {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      @include fontFredericka;
+    }
+
+    &--ja {
+      font-size: 1.2rem;
+      padding-left: 1rem;
+    }
+  }
+
+  &--tableBlock {
+    margin-top: 2rem;
+
+    table {
+      width: 100%;
+      margin-bottom: 3rem;
+      
+      @include max(m) {
+        margin-bottom: 2rem;
+      }
+      
+
+      th {
+        width: 20%;
+        
+        text-align: left;
+        letter-spacing: 0.2rem;
+        font-weight: bold;
+        font-size: 1.1rem;
+        vertical-align: middle;
+      }
+      td {
+        padding: 1.2rem 0;
+        width: 80%;
+        letter-spacing: 0.1rem;
+        vertical-align: middle;
+
+        p {
+          line-height: 1.6rem;
+          text-align: justify;
+          letter-spacing: 0.1;
+        }
+      }
+    }
+  }
+
+  &--text {
+      letter-spacing: 0.1rem;
+      line-height: 1.6rem;
+      margin-top: 0.6em;
+    }
+
+
+
+  &--rightBlock {
+    img {
+      width: 100%;
+      filter: grayscale(0.6);
+
+      @include max(m) {
+        aspect-ratio: 10 / 5;
+        object-fit: cover;
+        margin-top: 3rem;
+      }
+    }
+  }
+}
+
+
+
+/*------------------main--contact--------------------*/
+
+.contactForm {
+  background-color: $cBlack;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 6rem;
+  box-sizing: border-box;
+
+  @include max(m) {
+    padding: 4rem;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    // z-index: 5;
+    @include positionCenter;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    border: 1px solid $cWhite;
+  }
+
+  &--text {
+    text-align: center;
+    color: $cWhite;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 4rem;
+
+    small {
+      color: $cWhite;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+  }
+
+  form {
+    position: relative;
+
+    .flexBlock {
+      @include displayFlex;
+      margin-bottom: 3rem;
+
+      label {
+        color: $cWhite;
+        width: 30%;
+        font-size: 1.4rem;
+        letter-spacing: 0.1rem;
+        @include fontFredericka;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 70%;
+      }
+
+      input,
+      select {
+        height: 3rem;
+      }
+
+      textarea {
+        height: 20rem;
+        margin-bottom: 3rem;
+      }
+    }
+
+    button {
+      @include marginCenter;
+      width: 200px;
+      height: 50px;
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+      @include fontFredericka;
+    }
+  }
+}
+
+
+
+/*------------------main--banner--------------------*/
+
+.bannerWrapper {
+  .contentsBlock {
+    ul {
+      @include displayFlex($jC: space-around);
+    }
+  }
+}
+
+
+
+
+/*------------------footer--------------------*/
+
+
+footer {
+  clip-path: polygon(70% 20%, 100% 0, 100% 100%, 0 100%, 0 0);
+  background-color: $cBlack;
+
+  .contentsBlock {
+    text-align: center; //toContactを中心寄せするため
+    padding-bottom: 0.5rem;
+  }
+
+  small {
+    display: block;
+    color: $cWhite;
+    font-size: 0.7rem;
+  }
+}
+
+.footer {
+
+  &--logoBlock {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 7rem;
+
+    .flexBlock {
+      @include displayFlex($jC: center);
+      img {
+        width: 60px;
+        padding-right: 1rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+        @include fontFredericka;
+      }
+    }
+
+    p {
+      color: $cWhite;
+      @include fontFredericka;
+    }
+  }
+
+  &--shopName {
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 1rem;
+      letter-spacing: 0.1rem;
+    }
+
+  &--toContact {
+    color: $cWhite;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem;
+    border: 1px solid $cWhite;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    
+
+    span {
+      color: $cWhite;
+      font-size: 1.6rem;
+      @include fontFredericka;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  
+}
+
+
+.toTop {
+  color: $cBlack;
+  background-color: $backGround;
+  display: inline-block;
+  text-decoration: none;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  font-size: 2rem;
+  position: fixed;
+  z-index: 15;
+  bottom: 70px;
+  right: 3rem;
+  text-align: center;
+  border: 1px solid $cGray;
 }

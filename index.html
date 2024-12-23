@@ -21,6 +21,13 @@
   <!-- icon -->
   <link rel="icon" href="img/leather-rollin-logo.ico" sizes="16x16 32x32 48x48">
 
+
+
+  <!-- フォントFredericka the Great -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Leckerli+One&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+
   <!-- css -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -48,6 +55,8 @@
 
 
   <main>
+
+    <a href="#top" class="toTop">▲</a>
     <!--=================== main--FV ===================-->
     <section class="fv" id="top">
       <p class="fv--shopName">leather Rollin'</p>
@@ -56,7 +65,7 @@
     
 
     <!--=================== main--NEWS ===================-->
-    <section class="newsWrapper">
+    <section class="newsWrapper" id="news">
       <div class="contentsBlock">
         <div class="newsBlock">
           <h2>News</h2>
@@ -73,7 +82,7 @@
     
 
     <!--=================== main--ONLINESHOP ===================-->
-    <section>
+    <section id="onlineshop">
       <div class="onlineWrapper">
         <div class="contentsBlock">
           <div class="textCenterParent"><h2>OnlineShop</h2></div>
@@ -92,7 +101,7 @@
 
 
     <!--=================== main--GALLERY ===================-->
-    <section>
+    <section class="galleryWrapper" id="gallery">
       <div class="contentsBlock">
       <h2>Gallery</h2>
         <ul>
@@ -107,47 +116,51 @@
 
 
     <!--=================== main--ABOUT ===================-->
-    <section>
+    <section class="aboutWrapper" id="about">
       <div class="contentsBlock">
         <h2>About</h2>
-        <div>
-          <p aria-hidden="true">Hirose Minobu</p>
-          <p>廣瀬　実伸</p>
-        </div>
-        <hr>
-        <div>
-          <table>
-            <tbody>
-              <tr>
-                <th><time datetime="2003">2003年</time></th>
-                <td><p>名古屋市西区「革工房うえすと」の<wbr>近藤氏の元に入門。</p></td>
-              </tr>
-              <tr>
-                <th><time datetime="2009">20099年</time></th>
-                <td><p>ブランドリペアの会社に勤め、<wbr>革修理の技術を学びつつ、<wbr>自身の制作活動を続ける。</p></td>
-              </tr>
-              <tr>
-                <th><time datetime="2018">2018年</time></th>
-                <td><p>結婚、出産を経て子育てしながら<wbr>マルシェ等に出店。<wbr>ワークショップを開催。</p></td>
-              </tr>
-              <tr>
-                <th><time datetime="2023">2023年</time></th>
-                <td><p>日本ライン花木センター内にて<wbr>leatherRollin'として初の工房オープン。</p></td>
-              </tr>
-              <tr>
-                <th><time datetime="2025">2025年</time></th>
-                <td><p>2024年をもって店舗での営業を終了。<wbr>オンライン販売を中心とした運営に移行。</p></td>
-              </tr>
-            </tbody>
-          </table>
-          <p>
-            かけがえのない動物から頂いた素材に誠実に向き合い、じっくり手をかけて、愛されるように作品を創ります。<br>
-            牛や山羊が生きていた時に負った怪我による傷、皮膚のシワ、血管の浮き出た部分も作品に使用します。<br>
-            その丈夫さから生命力を感じ、身に着けることに誇りをもっていただけるように制作活動をしています。
-          </p>
-        </div>
-        <div>
-          <img src="img/minobu03.jpg" alt="廣瀬実伸の画像">
+        <div class="about--flexBlock">
+          <div class="about--leftBlock">
+            <div class="about--nameBlock">
+              <p aria-hidden="true" class="about--nameBlock--en">Hirose Minobu</p>
+              <p class="about--nameBlock--ja">廣瀬　実伸</p>
+            </div>
+            <hr>
+            <div class="about--tableBlock">
+              <table>
+                <tbody>
+                  <tr>
+                    <th><time datetime="2003">2003年</time></th>
+                    <td><p>名古屋市西区「革工房うえすと」の<wbr>近藤氏の元に入門。</p></td>
+                  </tr>
+                  <tr>
+                    <th><time datetime="2009">2009年</time></th>
+                    <td><p>ブランドリペアの会社に勤め、<wbr>革修理の技術を学びつつ、<br>自身の制作活動を続ける。</p></td>
+                  </tr>
+                  <tr>
+                    <th><time datetime="2018">2018年</time></th>
+                    <td><p>結婚、出産を経て子育てしながら<wbr>マルシェ等に出店。<br>ワークショップを開催。</p></td>
+                  </tr>
+                  <tr>
+                    <th><time datetime="2023">2023年</time></th>
+                    <td><p>日本ライン花木センター内にて<br>leatherRollin'として初の工房オープン。</p></td>
+                  </tr>
+                  <tr>
+                    <th><time datetime="2025">2025年</time></th>
+                    <td><p>2024年をもって店舗での営業を終了。<br>オンライン販売を中心とした運営に移行。</p></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="about--text">
+                かけがえのない動物から頂いた素材に誠実に向き合い、じっくり手をかけて、愛されるように作品を創ります。</p>
+                <p class="about--text">牛や山羊が生きていた時に負った怪我による傷、皮膚のシワ、血管の浮き出た部分も作品に使用します。</p>
+                <p class="about--text">その丈夫さから生命力を感じ、身に着けることに誇りをもっていただけるように制作活動をしています。
+              </p>
+            </div>
+          </div>
+          <div class="about--rightBlock">
+            <img src="img/minobu03.jpg" alt="廣瀬実伸の画像">
+          </div>
         </div>
       </div>
     </section>
@@ -155,53 +168,61 @@
 
 
     <!--=================== main--CONTACT ===================-->
-    <section>
+    <section class="contactWrapper" id="contact">
       <div class="contentsBlock">
         <h2>Contact</h2>
 
-        <form method="post"><!-- methodは勉強して理解したつもりですが、actionが、ワードプレスのプラグインを使った場合どう入れるべきか悩んでいます。。-->
+        <div class="contactForm">
 
-          <div>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" placeholder="（例）山田　太郎" required>
-          </div>
+          <p class="contactForm--text">
+            ワークショップやイベント出店などのご依頼など、<wbr>
+            お気軽にお問い合わせください。
+            <small>※全て必須項目となります。</small>
+          </p>
+          <form method="post"><!-- methodは勉強して理解したつもりですが、actionが、ワードプレスのプラグインを使った場合どう入れるべきか悩んでいます。。-->
 
-          <div>
-            <label for="email">E-mail</label>
-            <input type="text" type="email" name="email" id="email" placeholder="（例）aaa@aaa.co.jp" required>
-          </div>
+            <div class="flexBlock">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" placeholder="（例）山田　太郎" required>
+            </div>
 
-          <div>
-            <label for="tel">Tel</label>
-            <input type="text" type="tel" name="tel" id="tel" placeholder="（例）000-0000-0000" required>
-          </div>
+            <div class="flexBlock">
+              <label for="email">E-mail</label>
+              <input type="text" type="email" name="email" id="email" placeholder="（例）aaa@aaa.co.jp" required>
+            </div>
 
-          <div>
-            <label for="title">Title</label>
-            <select name="title" id="title" required>
-              <option value="">選択してください</option>
-              <option value="ワークショップのご依頼">ワークショップのご依頼</option>
-              <option value="出店のご依頼">出店のご依頼</option>
-              <option value="製作のご依頼">製作のご依頼</option>
-              <option value="その他">その他</option>
-            </select>
-          </div>
+            <div class="flexBlock">
+              <label for="tel">Tel</label>
+              <input type="text" type="tel" name="tel" id="tel" placeholder="（例）000-0000-0000" required>
+            </div>
 
-          <div>
-            <label for="message">Message</label>
-            <textarea name="message" id="message" placeholder="お問い合わせ詳細をご入力ください" required></textarea>
-          </div>
-          
+            <div class="flexBlock">
+              <label for="title">Title</label>
+              <select name="title" id="title" required>
+                <option value="">選択してください</option>
+                <option value="ワークショップのご依頼">ワークショップのご依頼</option>
+                <option value="出店のご依頼">出店のご依頼</option>
+                <option value="製作のご依頼">製作のご依頼</option>
+                <option value="その他">その他</option>
+              </select>
+            </div>
 
-          <button type="submit" name="submit" value="send">Send</button>
-        </form> 
+            <div class="flexBlock">
+              <label for="message">Message</label>
+              <textarea name="message" id="message" placeholder="お問い合わせ詳細をご入力ください" required></textarea>
+            </div>
+            
+
+            <button type="submit" name="submit" value="send">Send</button>
+          </form> 
+        </div>
       </div>
     </section>
 
 
 
     <!--=================== main--BANNER ===================-->
-    <section>
+    <section class="bannerWrapper">
       <div class="contentsBlock">
         <ul>
           <li><a href="#"><img src="img/bn_onlineshop.jpg" alt="オンラインショップへ"></a></li>
@@ -215,16 +236,15 @@
   <!--=================== Footer ===================-->
   <footer>
     <div class="contentsBlock">
-      <div>
-        <div><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><p>leather workshop</p></div>
-        <div><p>leather Rollin'</p></div>
+      <div class="footer--logoBlock">
+        <div class="flexBlock"><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><p>leather workshop</p></div>
+        <p class="footer--shopName">leather Rollin'</p>
       </div>
 
-      <a href="#">ご注文やご依頼などは<wbr>お気軽に<span>Contact</span><wbr>よりご連絡ください。</a>
+      <a href="#contact" class="footer--toContact">ご注文やご依頼などは<wbr>お気軽に<span>Contact</span><wbr>よりご連絡ください。</a>
 
       <small>copyright ©leatherRollin' All Right Reserved.</small>
 
-      <a href="#">▲<br>Topへ</a>
     </div>
   </footer>
 </body>

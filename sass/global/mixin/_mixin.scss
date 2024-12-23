@@ -1,6 +1,7 @@
 @use "../setting" as *;
 @use "_breakpoint" as *;
 
+
 @mixin marginCenter($display:block) {
   display: $display;
   margin-left: auto;
@@ -22,4 +23,18 @@
 @mixin positionCenter2($left:50%, $tlX:-50%) {
   left: $left;
   transform: translateX($tlX);
+}
+
+
+@mixin fontFredericka {
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@mixin max($breakPoint) {
+  @media #{map-get($breakPints, $breakPoint)} {
+    @content;
+  }
 }

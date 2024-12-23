@@ -2,21 +2,44 @@
 base
 ----------------------------------------*/
 /*------------------common--------------------*/
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem;
+}
+
+body {
+  background-color: #D9D9D9;
+}
+
 .contentsBlock {
-  width: 70%;
+  width: 100%;
   max-width: 1200px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+@media only screen and (max-width: 900px) {
+  .contentsBlock {
+    width: 100%;
+    max-width: 800px;
+  }
 }
 
 section {
   margin-bottom: 8rem !important;
   width: 100%;
 }
-
-h2 {
-  font-size: 3rem !important;
+section h2 {
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3.2rem;
+  letter-spacing: 0.2rem;
+}
+@media only screen and (max-width: 900px) {
+  section h2 {
+    font-size: 2.4rem;
+  }
 }
 
 .textCenterParent {
@@ -28,7 +51,7 @@ header {
   position: fixed;
   width: 100%;
   height: 70px;
-  background-color: aqua;
+  background-color: #D9D9D9;
   z-index: 1000;
 }
 header .flexBlock {
@@ -47,17 +70,26 @@ header .header--logoGroup img {
 header .header--logoGroup h1 {
   font-size: 2rem;
   padding-left: 1rem;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 header nav ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+header nav ul li {
+  font-size: 1.2rem;
+}
 header nav ul li a {
   text-decoration: none;
   color: #333333;
   padding: 100% 1rem;
   box-sizing: border-box;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 header nav ul li a img {
   width: 30px;
@@ -87,7 +119,7 @@ header nav ul li a img {
 .newsWrapper {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, #999999 70%, #ffffff 30%);
+  background: linear-gradient(to top, #999999 70%, #D9D9D9 30%);
 }
 
 .contentsBlock {
@@ -124,6 +156,9 @@ header nav ul li a img {
   bottom: 0;
   transform: translateY(50%);
   right: 0;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /*------------------main--onlineshop--------------------*/
@@ -142,7 +177,7 @@ header nav ul li a img {
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
-  background-color: #ffffff;
+  background-color: #D9D9D9;
   position: absolute;
   top: 0;
   transform: translateY(-50%) translateX(-50%);
@@ -154,36 +189,370 @@ header nav ul li a img {
   transform: translateY(5rem);
   line-height: 3.2;
   font-size: 1.2rem;
-  background-color: #ffffff;
+  background-color: #D9D9D9;
   padding: 0.6rem 1rem;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   letter-spacing: 0.1rem;
-  vertical-align: middle;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@media only screen and (max-width: 900px) {
+  .onlineWrapper .online--catchCopy {
+    font-size: 1rem;
+    line-height: 2.6;
+    padding: 0.4rem 0.6rem;
+  }
 }
 .onlineWrapper .online--catchCopy--block {
   margin-top: 15rem;
+}
+@media only screen and (max-width: 900px) {
+  .onlineWrapper .online--catchCopy--block {
+    margin-top: 10rem;
+  }
 }
 .onlineWrapper .online--link {
   text-decoration: none;
   position: absolute;
   z-index: 10;
-  background-color: #ffffff;
+  background-color: #D9D9D9;
   color: #333333;
   border: 1px solid #333333;
   padding: 1rem;
   letter-spacing: 0.1rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   bottom: 0;
   transform: translateY(50%) translateX(-50%);
   left: 50%;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .onlineWrapper ul {
-  position: absolute;
   z-index: 1;
 }
 .onlineWrapper ul li img {
   width: 100%;
   aspect-ratio: 10/5;
   object-fit: cover;
+}
+
+/*------------------main--gallery--------------------*/
+.galleryWrapper .contentsBlock {
+  position: relative;
+  border: 1px solid #333333;
+  padding: 4rem 2rem 3rem;
+  box-sizing: border-box;
+}
+.galleryWrapper .contentsBlock h2 {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  left: 2rem;
+  background-color: #D9D9D9;
+  padding: 1rem;
+}
+.galleryWrapper .contentsBlock ul {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.galleryWrapper .contentsBlock ul li {
+  width: 32%;
+}
+.galleryWrapper .contentsBlock ul li img {
+  width: 100%;
+}
+
+/*------------------main--about--------------------*/
+.aboutWrapper {
+  background-color: #333333;
+  padding: 5rem 0;
+}
+.aboutWrapper .contentsBlock {
+  border: 1px solid #ffffff;
+  position: relative;
+  box-sizing: border-box;
+  padding: 4rem 2rem 2rem;
+}
+.aboutWrapper .contentsBlock::before {
+  position: absolute;
+  content: "";
+  border: 1px solid #ffffff;
+  width: calc(100% - 30px);
+  height: calc(100% + 30px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.aboutWrapper .contentsBlock h2 {
+  color: #ffffff;
+  position: absolute;
+  background-color: #333333;
+  padding: 1rem;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about--flexBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+@media only screen and (max-width: 900px) {
+  .about--flexBlock {
+    flex-direction: column;
+  }
+}
+.about--leftBlock {
+  padding-right: 1rem;
+}
+@media only screen and (max-width: 900px) {
+  .about--leftBlock {
+    padding: 0;
+  }
+}
+.about--leftBlock p, .about--leftBlock time {
+  color: #ffffff;
+}
+.about--nameBlock {
+  margin-bottom: 2rem;
+}
+.about--nameBlock--en {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.about--nameBlock--ja {
+  font-size: 1.2rem;
+  padding-left: 1rem;
+}
+.about--tableBlock {
+  margin-top: 2rem;
+}
+.about--tableBlock table {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+@media only screen and (max-width: 900px) {
+  .about--tableBlock table {
+    margin-bottom: 2rem;
+  }
+}
+.about--tableBlock table th {
+  width: 20%;
+  text-align: left;
+  letter-spacing: 0.2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+.about--tableBlock table td {
+  padding: 1.2rem 0;
+  width: 80%;
+  letter-spacing: 0.1rem;
+  vertical-align: middle;
+}
+.about--tableBlock table td p {
+  line-height: 1.6rem;
+  text-align: justify;
+  letter-spacing: 0.1;
+}
+.about--text {
+  letter-spacing: 0.1rem;
+  line-height: 1.6rem;
+  margin-top: 0.6em;
+}
+.about--rightBlock img {
+  width: 100%;
+  filter: grayscale(0.6);
+}
+@media only screen and (max-width: 900px) {
+  .about--rightBlock img {
+    aspect-ratio: 10/5;
+    object-fit: cover;
+    margin-top: 3rem;
+  }
+}
+
+/*------------------main--contact--------------------*/
+.contactForm {
+  background-color: #333333;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 6rem;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 900px) {
+  .contactForm {
+    padding: 4rem;
+  }
+}
+.contactForm::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  border: 1px solid #ffffff;
+}
+.contactForm--text {
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 4rem;
+}
+.contactForm--text small {
+  color: #ffffff;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.contactForm form {
+  position: relative;
+}
+.contactForm form .flexBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+.contactForm form .flexBlock label {
+  color: #ffffff;
+  width: 30%;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.contactForm form .flexBlock input,
+.contactForm form .flexBlock select,
+.contactForm form .flexBlock textarea {
+  width: 70%;
+}
+.contactForm form .flexBlock input,
+.contactForm form .flexBlock select {
+  height: 3rem;
+}
+.contactForm form .flexBlock textarea {
+  height: 20rem;
+  margin-bottom: 3rem;
+}
+.contactForm form button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 50px;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*------------------main--banner--------------------*/
+.bannerWrapper .contentsBlock ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/*------------------footer--------------------*/
+footer {
+  clip-path: polygon(70% 20%, 100% 0, 100% 100%, 0 100%, 0 0);
+  background-color: #333333;
+}
+footer .contentsBlock {
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+footer small {
+  display: block;
+  color: #ffffff;
+  font-size: 0.7rem;
+}
+
+.footer--logoBlock {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 7rem;
+}
+.footer--logoBlock .flexBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer--logoBlock .flexBlock img {
+  width: 60px;
+  padding-right: 1rem;
+}
+.footer--logoBlock .flexBlock p {
+  font-size: 1.6rem;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.footer--logoBlock p {
+  color: #ffffff;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.footer--shopName {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 1rem;
+  letter-spacing: 0.1rem;
+}
+.footer--toContact {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem;
+  border: 1px solid #ffffff;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+.footer--toContact span {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+.toTop {
+  color: #333333;
+  background-color: #D9D9D9;
+  display: inline-block;
+  text-decoration: none;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  font-size: 2rem;
+  position: fixed;
+  z-index: 15;
+  bottom: 70px;
+  right: 3rem;
+  text-align: center;
+  border: 1px solid #999999;
 }
