@@ -28,8 +28,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Leckerli+One&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
 
-  <!-- css -->
+  <!--------------- css --------------->
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <!-- FV -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/vegas.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fv.css">
+
+  <!-- nav ハンバーガーメニュー -->
+  <link rel="stylesheet" type="text/css" href="css/nav.css">
+
+  <!-- news  スリック -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="css/news.css">
 
 </head>
 <body>
@@ -38,7 +49,9 @@
   <header>
     <div class="contentsBlock flexBlock"><!--コンテンツ幅用のdiv。横幅をPC70％、SPは90％でとりたいので。sectionと分ける理由としては、背景など横幅いっぱいに入れたいものがあるので、それと分けるため。意味があるものではないと思ったのでdivにしました-->
       <div class="header--logoGroup"><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><h1>leather Rollin'</h1></div>
-      <nav>
+
+      <div class="openbtn"><span></span><span></span><span></span></div>
+      <nav id="g-nav">
         <ul>
           <li><a href="#top">Top</a></li>
           <li><a href="#news">News</a></li>
@@ -51,7 +64,7 @@
       </nav>
     </div>
 
-    
+
   </header>
 
 
@@ -61,8 +74,10 @@
     <a href="#top" class="toTop">▲</a>
     <!--=================== main--FV ===================-->
     <section class="fv" id="top">
-      <p class="fv--shopName">leather Rollin'</p>
-      <p class="fv--catchCopy">世界にひとつだけ、<wbr>自分だけのレザー</p>
+      <div id="fv--slider">
+        <p class="fv--shopName">leather Rollin'</p>
+        <p class="fv--catchCopy">世界にひとつだけ、<wbr>自分だけのレザー</p>
+      </div>
     </section>
     
 
@@ -71,7 +86,7 @@
       <div class="contentsBlock">
         <div class="newsBlock">
           <h2>News</h2>
-          <ul>
+          <ul class="news--slider">
             <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
             <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
             <li><a href="#"><img src="img/kari.jpg" alt=""></a></li>
@@ -249,6 +264,22 @@
 
     </div>
   </footer>
+
+
+  <!-- js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <!-- fv -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/vegas.min.js"></script>
+  <script src="js/fv.js"></script>
+
+  <!-- nav -->
+  <script src="js/nav.js"></script>
+
+  <!-- news -->
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="js/news.js"></script>
 </body>
-  <script type="text/javascript" src="js/main.js"></script>
+
 </html>

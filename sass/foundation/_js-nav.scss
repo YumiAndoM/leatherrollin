@@ -1,0 +1,175 @@
+@use "../global" as *;
+
+/*========= ナビゲーションのためのCSS ===============*/
+
+
+#g-nav{
+    @include max(m) {
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position:fixed;
+    z-index: 300;
+    /*ナビのスタート位置と形状*/
+	top:0;
+    right: -120%;
+	width:100%;
+    height: 100vh;/*ナビの高さ*/
+	background:#999;
+    /*動き*/
+	transition: all 0.6s;
+    }
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#g-nav.panelactive{
+    @include max(m) {
+        right: 0;
+    }
+    
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav.panelactive #g-nav-list{
+    @include max(m) {
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 300; 
+    width: 100%;
+    height: 100vh;/*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    }
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+    @include max(m) {
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 300;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+
+    @include max (m) {
+        flex-direction: column;
+    }
+    }
+
+    li {
+        @include max(m) {
+            margin: 1rem 0;
+        }
+    }
+}
+
+/*リストのレイアウト設定*/
+
+// #g-nav li{
+// 	list-style: none;
+//     text-align: center;
+// }
+
+// #g-nav li a{
+// 	color: #333;
+// 	text-decoration: none;
+// 	padding:10px;
+// 	display: block;
+// 	text-transform: uppercase;
+// 	letter-spacing: 0.1em;
+// 	font-weight: bold;
+// }
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn{
+    @include max(m) {
+	// position:fixed;
+    position: absolute;
+    display: block;
+    z-index: 301;/*ボタンを最前面に*/
+	top:10px;
+	right: 0;
+	cursor: pointer;
+    width: 50px;
+    height:50px;
+    }
+}
+	
+/*×に変化*/	
+.openbtn span{
+    @include max(m) {
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 2px;
+    border-radius: 2px;
+	background-color: $cBlack;
+    width: 45%;
+    }
+    }
+
+.openbtn span:nth-of-type(1) {
+    @include max(m) {
+	top:12px;	
+    }
+}
+
+.openbtn span:nth-of-type(2) {
+    @include max(m) {
+	top:17px;
+    }
+}
+
+.openbtn span:nth-of-type(3) {
+    @include max(m) {
+	top:22px;
+    }
+}
+
+.openbtn span:nth-of-type(3)::after {
+    @include max(m) {
+	content:"Menu";/*3つ目の要素のafterにMenu表示を指定*/
+	position: absolute;
+	top:10px;
+	left:-2px;
+	color: $cBlack;
+	font-size: 0.6rem;
+	text-transform: uppercase;
+    }
+}
+
+.openbtn.active span:nth-of-type(1) {
+    @include max(m) {
+    top: 14px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+    }
+}
+
+.openbtn.active span:nth-of-type(2) {
+    @include max(m) {
+	opacity: 0;
+    }
+}
+
+.openbtn.active span:nth-of-type(3){
+    @include max(m) {
+    top: 26px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+    }
+}
+
+
+.openbtn.active span:nth-of-type(3)::after {
+    @include max(m) {
+	content:"Close";/*3つ目の要素のafterにClose表示を指定*/
+    transform: translateY(0) rotate(-45deg);
+	top:10px;
+	left:4px;
+    }
+}
+

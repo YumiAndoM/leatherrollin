@@ -16,9 +16,15 @@ body {
   background-color: $backGround;
 }
 
+html,
+body {
+  width: 100vw;
+  // overflow-x: hidden;
+}
+
 .contentsBlock {
-  width: 100%;
-  max-width: 1200px;
+  width: 70%;
+  // max-width: 1200px;
   
   @include marginCenter();
 
@@ -26,11 +32,20 @@ body {
     width: 100%;
     max-width: 800px;
   }
+
+  @include max(s) {
+    width: 100%;
+    max-width: 430px;
+  }
 }
 
 section {
   margin-bottom: 8rem !important;
   width: 100%;
+
+  @include max(s) {
+    margin-bottom: 6rem !important;
+  }
 
   h2 {
     @include fontFredericka;
@@ -39,6 +54,10 @@ section {
 
     @include max(m) {
       font-size: 2.4rem;
+    }
+
+    @include max(s) {
+      font-size: 2rem;
     }
   }
 }
@@ -52,16 +71,23 @@ section {
 
 
 /*------------------header--------------------*/
+
+// TODO:Googleの伸縮なら問題ないのに、レスポンシブにするとSPの場合ついてこない
 header {
   position: fixed;
   width: 100%;
   height: 70px;
   background-color: $backGround;
   z-index: 1000;
-  
 
   .flexBlock {
     @include displayFlex;
+    padding: 0 1rem;
+    box-sizing: border-box;
+
+    @include max(s) {
+      padding: 0 0.2rem;
+    }
   }
 
   .header {
@@ -72,12 +98,20 @@ header {
 
       img {
         width: 50px;
+
+        @include max(s) {
+          width: 40px;
+        }
       }
 
       h1 {
         font-size: 2rem;
         padding-left: 1rem;
         @include fontFredericka;
+
+        @include max(s) {
+          font-size: 1.4rem
+        }
       }
     }
   }
@@ -92,7 +126,7 @@ header {
         a {
           text-decoration: none;
           color: $cBlack;
-          padding: 100% 1rem;
+          padding: 100% 0.6rem;
           box-sizing: border-box;
           @include fontFredericka;
 
@@ -112,15 +146,15 @@ header {
 /*------------------main--FV--------------------*/
 
 .fv {
-  background-image: url(../img/fv-slider01.jpg);
-  height: 100vh;
+
   
   &--shopName {
     font-size: 4rem;
-    padding-top: 7rem;
+    padding-top: 16rem;
     text-align: center;
     letter-spacing: 0.2rem;
     color: $cWhite;
+    @include fontFredericka;
   }
 
   &--catchCopy {
@@ -141,6 +175,10 @@ header {
   height: 100%;
   
   background: linear-gradient(to top, #999999 70%, $backGround 30%); 
+
+  @include max(s) {
+    background: linear-gradient(to top, #999999 50%, $backGround 50%); 
+  }
 }
 
 .contentsBlock {
@@ -152,21 +190,31 @@ header {
 
 .newsBlock {
   @include displayFlex($jC: flex-end);
+  width: 100%;
+
+  @include max(s) {
+    flex-direction: column;
+  }
 
   h2 {
     padding-right: 2rem;
-  }
 
-  ul {
-    @include displayFlex;
-
-    li {
-      img {
-        width: 90%;
-        margin-left: 10%;
-      }
+    @include max(s) {
+      padding: 0;
+      margin-bottom: 2rem;
     }
   }
+
+  // ul {
+  //   @include displayFlex;
+
+  //   li {
+  //     img {
+  //       width: 90%;
+  //       // margin-left: 10%;
+  //     }
+  //   }
+  // }
 
 
   &--vewMore {
@@ -270,6 +318,11 @@ header {
         width: 100%;
         aspect-ratio: 10 / 5;
         object-fit: cover;
+
+        @include max(s) {
+          aspect-ratio: 4 / 5;
+
+        }
       }
     }
   }
@@ -357,6 +410,7 @@ header {
 
     @include max(m) {
       padding: 0;
+      width: 100%;
     }
     p, time {
       color: $cWhite;
@@ -399,12 +453,24 @@ header {
         font-weight: bold;
         font-size: 1.1rem;
         vertical-align: middle;
+
+        @include max(m) {
+          width: 100%;
+          display: block;
+          vertical-align: bottom;
+        }
       }
       td {
         padding: 1.2rem 0;
         width: 80%;
         letter-spacing: 0.1rem;
         vertical-align: middle;
+
+        @include max(m) {
+          width: 100%;
+          display: block;
+          padding: 0.6rem 0 1.2rem;
+        }
 
         p {
           line-height: 1.6rem;
@@ -530,6 +596,12 @@ header {
   .contentsBlock {
     ul {
       @include displayFlex($jC: space-around);
+
+      li {
+        img {
+          width: 100%;
+        }
+      }
     }
   }
 }
@@ -629,4 +701,13 @@ footer {
   right: 3rem;
   text-align: center;
   border: 1px solid $cGray;
+
+  @include max(s) {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.6rem;
+    right: 1rem;
+    bottom: 30px;
+  }
 }
