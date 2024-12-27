@@ -10,6 +10,10 @@ base
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 8rem;
+
+  @include max(s) {
+    scroll-padding-top: 6rem;
+  }
 }
 
 body {
@@ -23,19 +27,20 @@ body {
 }
 
 .contentsBlock {
-  width: 70%;
-  // max-width: 1200px;
+  width: 100%;
+  max-width: 1200px;
+  // box-sizing: border-box;
   
   @include marginCenter();
 
   @include max(m) {
-    width: 100%;
-    max-width: 800px;
+    width: 80%;
+    max-width: 720px;
   }
 
   @include max(s) {
-    width: 100%;
-    max-width: 430px;
+    width: 90%;
+    max-width: 630px;
   }
 }
 
@@ -56,9 +61,9 @@ section {
       font-size: 2.4rem;
     }
 
-    @include max(s) {
-      font-size: 2rem;
-    }
+    // @include max(s) {
+    //   font-size: 3rem;
+    // }
   }
 }
 
@@ -72,7 +77,6 @@ section {
 
 /*------------------header--------------------*/
 
-// TODO:Googleの伸縮なら問題ないのに、レスポンシブにするとSPの場合ついてこない
 header {
   position: fixed;
   width: 100%;
@@ -87,6 +91,8 @@ header {
 
     @include max(s) {
       padding: 0 0.2rem;
+      // margin-left: 0;
+      // margin-right: 0;
     }
   }
 
@@ -121,17 +127,29 @@ header {
       @include displayFlex;
 
       li {
-        font-size: 1.2rem;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        height: 60px;
+
+        &:nth-of-type(6) {
+          background-color: $cBlack;
+
+          a {
+            color: $cWhite !important;
+          }
+        }
 
         a {
           text-decoration: none;
           color: $cBlack;
-          padding: 100% 0.6rem;
+          padding: 100% 0 0 0.8rem;
           box-sizing: border-box;
           @include fontFredericka;
+          
 
           img {
-            width: 30px;
+            width: 20px;
             
           }
         }
@@ -168,6 +186,78 @@ header {
 }
 
 
+/*=== 丸が動いてスクロールを促す ====*/
+
+/*スクロールダウン全体の場所*/
+.scrolldown{
+    /*描画位置※位置は適宜調整してください*/
+	position:absolute;
+	bottom:10px;
+	left:50%;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown span{
+    /*描画位置*/
+	position: absolute;
+	left:10px;
+	bottom:1rem;
+    /*テキストの形状*/
+	color: #eee;
+	font-size: 0.7rem;
+	letter-spacing: 0.1em;
+	/*縦書き設定*/
+	-ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+}
+
+/* 丸の描写 */
+.scrolldown:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom:1rem;
+    left:-4px;
+    /*丸の形状*/
+	width:10px;
+	height:10px;
+	border-radius: 50%;
+	background:#eee;
+    /*丸の動き1.6秒かけて透過し、永遠にループ*/
+	animation:
+		circlemove 1.6s ease-in-out infinite,
+		cirlemovehide 1.6s ease-out infinite;
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove{
+      0%{bottom:70px;}
+    100%{bottom:10px;}
+  }
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide{
+      0%{opacity:0}
+    50%{opacity:1;}
+    80%{opacity:0.9;}
+	100%{opacity:0;}
+  }
+
+/* 線の描写 */
+.scrolldown:after{
+	content:"";
+    /*描画位置*/
+	position: absolute;
+	bottom:1rem;
+	left:0;
+    /*線の形状*/
+	width:2px;
+	height: 50px;
+	background:#eee;
+}
+
+
 /*------------------main--news--------------------*/
 
 .newsWrapper {
@@ -182,10 +272,11 @@ header {
 }
 
 .contentsBlock {
-  position: relative;
-  padding-bottom: 3rem;
+  position: relative; //vewMoreを下側のラインに乗せるためのrelative
+  padding: 0 1rem 3rem;
   height: 100%;
-  //vewMoreを下側のラインに乗せるためのrelative
+  box-sizing: border-box;
+  
 }
 
 .newsBlock {
@@ -227,7 +318,7 @@ header {
     position: absolute;
     bottom: 0;
     transform: translateY(50%);
-    right: 0;
+    right: 1rem;
     @include fontFredericka;
   }
 }
@@ -307,6 +398,11 @@ header {
       transform: translateY(50%) translateX(-50%);
       left: 50%;
       @include fontFredericka;
+
+      @include max(s) {
+        width: 60%;
+        text-align: center;
+      }
     }
   }
 
@@ -339,6 +435,10 @@ header {
     padding: 4rem 2rem 3rem;
     box-sizing: border-box;
 
+    @include max(s) {
+      padding: 4rem 1rem 3rem;
+    }
+
     h2 {
       position: absolute;
       top: 0;
@@ -347,21 +447,36 @@ header {
       background-color: $backGround;
       padding: 1rem;
     }
-
-    ul {
-      @include displayFlex($aI: flex-start);
-      flex-wrap: wrap;
-
-      li {
-        width: 32%;
-
-        img {
-          width: 100%;
-        }
-      }
-    }
   }
 }
+/*==================================================
+ギャラリーのためのcss
+===================================*/
+
+.gallery{
+  box-sizing: border-box;
+columns: 3;/*段組みの数*/
+padding:0 15px;/*ギャラリー左右に余白をつける*/
+margin:0;
+
+@include max(s) {
+  columns: 2;
+}
+}
+
+.gallery li {
+    margin-bottom: 20px;/*各画像下に余白をつける*/
+list-style:none;
+}
+
+/*ギャラリー内のイメージは横幅100%にする*/
+.gallery img{
+	width:100%;
+	height:auto;
+	vertical-align: bottom;/*画像の下にできる余白を削除*/
+  filter: grayscale(0.6);
+}
+
 
 
 /*------------------main--about--------------------*/
@@ -407,6 +522,8 @@ header {
 
   &--leftBlock {
     padding-right: 1rem;
+    box-sizing: border-box;
+    width: 50%;
 
     @include max(m) {
       padding: 0;
@@ -439,6 +556,7 @@ header {
     table {
       width: 100%;
       margin-bottom: 3rem;
+      box-sizing: border-box;
       
       @include max(m) {
         margin-bottom: 2rem;
@@ -446,36 +564,36 @@ header {
       
 
       th {
-        width: 20%;
+        width: 100%;
         
         text-align: left;
         letter-spacing: 0.2rem;
         font-weight: bold;
         font-size: 1.1rem;
-        vertical-align: middle;
+        vertical-align: bottom;
+        display: block;
 
-        @include max(m) {
-          width: 100%;
-          display: block;
-          vertical-align: bottom;
-        }
+        // @include max(m) {
+        //   width: 100%;
+        //   display: block;
+        //   vertical-align: bottom;
+        // }
       }
       td {
-        padding: 1.2rem 0;
-        width: 80%;
+        padding: 0.5rem 0 1.2rem;
+        width: 100%;
+        display: block;
         letter-spacing: 0.1rem;
-        vertical-align: middle;
+        vertical-align: top;
 
-        @include max(m) {
-          width: 100%;
-          display: block;
-          padding: 0.6rem 0 1.2rem;
-        }
 
         p {
           line-height: 1.6rem;
-          text-align: justify;
           letter-spacing: 0.1;
+
+          @include max(s) {
+            font-size: 0.9rem;
+          }
         }
       }
     }
@@ -485,11 +603,21 @@ header {
       letter-spacing: 0.1rem;
       line-height: 1.6rem;
       margin-top: 0.6em;
+
+      @include max(s) {
+        font-size: 0.9rem;
+      }
     }
 
 
 
   &--rightBlock {
+    width: 50%;
+    box-sizing: border-box;
+
+    @include max(m) {
+      width: 100%;
+    }
     img {
       width: 100%;
       filter: grayscale(0.6);
@@ -498,6 +626,10 @@ header {
         aspect-ratio: 10 / 5;
         object-fit: cover;
         margin-top: 3rem;
+      }
+
+      @include max(s) {
+        aspect-ratio: 4 / 5;
       }
     }
   }
@@ -519,6 +651,10 @@ header {
     padding: 4rem;
   }
 
+  @include max(s) {
+    padding: 4rem 2rem;
+  }
+
   &::before {
     position: absolute;
     content: "";
@@ -538,10 +674,18 @@ header {
     letter-spacing: 0.1rem;
     margin-bottom: 4rem;
 
+    @include max(s) {
+      font-size: 0.9rem;
+    }
+
     small {
       color: $cWhite;
       font-size: 0.9rem;
       margin-top: 1rem;
+
+      @include max(s) {
+        font-size: 0.8rem;
+      }
     }
   }
 
@@ -552,18 +696,31 @@ header {
       @include displayFlex;
       margin-bottom: 3rem;
 
+      @include max(s) {
+        flex-direction: column;
+      }
+
       label {
         color: $cWhite;
         width: 30%;
         font-size: 1.4rem;
         letter-spacing: 0.1rem;
         @include fontFredericka;
+
+        @include max(s) {
+          width: 100%;
+          margin-bottom: 0.5rem;
+        }
       }
 
       input,
       select,
       textarea {
         width: 70%;
+
+        @include max(s) {
+          width: 100%;
+        }
       }
 
       input,
@@ -574,6 +731,10 @@ header {
       textarea {
         height: 20rem;
         margin-bottom: 3rem;
+
+        @include max(s) {
+          margin-bottom: 1rem;
+        }
       }
     }
 
@@ -584,6 +745,10 @@ header {
       font-size: 1.4rem;
       letter-spacing: 0.1rem;
       @include fontFredericka;
+
+      @include max(s) {
+        width: 150px;
+      }
     }
   }
 }
@@ -596,6 +761,10 @@ header {
   .contentsBlock {
     ul {
       @include displayFlex($jC: space-around);
+
+      @include max(s) {
+        flex-direction: column;
+      }
 
       li {
         img {
@@ -615,6 +784,10 @@ header {
 footer {
   clip-path: polygon(70% 20%, 100% 0, 100% 100%, 0 100%, 0 0);
   background-color: $cBlack;
+
+  @include max(s) {
+    clip-path: polygon(70% 10%, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
 
   .contentsBlock {
     text-align: center; //toContactを中心寄せするため
@@ -659,6 +832,10 @@ footer {
       font-size: 3rem;
       margin-top: 1rem;
       letter-spacing: 0.1rem;
+
+      @include max(s) {
+        font-size: 2rem;
+      }
     }
 
   &--toContact {
@@ -669,6 +846,10 @@ footer {
     border: 1px solid $cWhite;
     margin-top: 3rem;
     margin-bottom: 2rem;
+
+    @include max(s) {
+      line-height: 1.6;
+    }
     
 
     span {
@@ -711,3 +892,79 @@ footer {
     bottom: 30px;
   }
 }
+
+
+/*========= ページトップのためのCSS ===============*/
+/*リンクの形状*/
+// TODO:見えないから見えるようにする
+// https://ugokuweb.coco-factory.jp/ugokuweb/move01/8-1-6/
+#page-top a{
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	background:#942D2F;
+	border-radius: 5px;
+	width: 60px;
+	height: 60px;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase; 
+	text-decoration: none;
+	font-size:0.6rem;
+	transition:all 0.3s;
+}
+
+#page-top a:hover{
+	background: #777;
+}
+
+/*リンクを右下に固定*/
+#page-top {
+	position: fixed;
+	right: 10px;
+	z-index: 9999;
+    /*はじめは非表示*/
+	opacity: 0;
+	transform: translateY(100px);
+}
+
+/*　上に上がる動き　*/
+
+#page-top.UpMove{
+	animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+	transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+/*　下に下がる動き　*/
+
+#page-top.DownMove{
+	animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+  from {
+  opacity: 1;
+	transform: translateY(0);
+  }
+  to {
+  opacity: 1;
+	transform: translateY(100px);
+  }
+}
+
+// /*検証のためのCSS*/
+// section{
+// padding: 500px 0;
+// }
+
+// #footer{
+// background:#333;
+// }

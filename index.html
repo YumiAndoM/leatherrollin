@@ -33,22 +33,23 @@
 
   <!-- FV -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/vegas.min.css">
-    <link rel="stylesheet" type="text/css" href="css/fv.css">
 
-  <!-- nav ハンバーガーメニュー -->
-  <link rel="stylesheet" type="text/css" href="css/nav.css">
 
   <!-- news  スリック -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-  <link rel="stylesheet" type="text/css" href="css/news.css">
+
+  <!-- gallery -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" />
+
 
 </head>
 <body>
 
   <!--=================== header ===================-->
   <header>
-    <div class="contentsBlock flexBlock"><!--コンテンツ幅用のdiv。横幅をPC70％、SPは90％でとりたいので。sectionと分ける理由としては、背景など横幅いっぱいに入れたいものがあるので、それと分けるため。意味があるものではないと思ったのでdivにしました-->
-      <div class="header--logoGroup"><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><h1>leather Rollin'</h1></div>
+    <div class="contentsBlock flexBlock">
+      <div class="header--logoGroup"><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><h1>leather Rollin'</h1>
+        </div>
 
       <div class="openbtn"><span></span><span></span><span></span></div>
       <nav id="g-nav">
@@ -71,12 +72,14 @@
 
   <main>
 
-    <a href="#top" class="toTop">▲</a>
+    <!-- <a href="#top" class="toTop">▲</a> -->
     <!--=================== main--FV ===================-->
     <section class="fv" id="top">
       <div id="fv--slider">
         <p class="fv--shopName">leather Rollin'</p>
         <p class="fv--catchCopy">世界にひとつだけ、<wbr>自分だけのレザー</p>
+
+        <div class="scrolldown"><span>Scroll</span></div>
       </div>
     </section>
     
@@ -121,12 +124,21 @@
     <section class="galleryWrapper" id="gallery">
       <div class="contentsBlock">
       <h2>Gallery</h2>
-        <ul>
-          <li><img src="img/gallery01.jpg" alt="レザー製品製作中"></li>
-          <li><img src="img/gallery03.jpg" alt="レザー製品製作中"></li>
-          <li><img src="img/gallery04.jpg" alt="ワークショップ風景"></li>
-          <li><img src="img/gallery05.jpg" alt="レザー製品製作中"></li>
-          <li><img src="img/gallery06.jpg" alt="レザー製品ミシン作業"></li>
+        <ul class="gallery">
+          <li><a href="img/gallery01.jpg" data-lightbox="gallery1" data-title="レザー製品製作中"><img src="img/gallery01.jpg" alt="レザー製品製作中"></a></li>
+          <li><a href="img/gallery03.jpg" data-lightbox="gallery1" data-title="レザー製品製作中"><img src="img/gallery03.jpg" alt="レザー製品製作中"></a></li>
+          <li><a href="img/gallery04.jpg" data-lightbox="gallery1" data-title="ワークショップ風景"><img src="img/gallery04.jpg" alt="ワークショップ風景"></a></li>
+          <li><a href="img/gallery05.jpg" data-lightbox="gallery1" data-title="レザー製品製作中"><img src="img/gallery05.jpg" alt="レザー製品製作中"></a></li>
+          <li><a href="img/gallery06.jpg" data-lightbox="gallery1" data-title="レザー製品ミシン作業"><img src="img/gallery06.jpg" alt="レザー製品ミシン作業"></a></li>
+          <li><a href="img/gallery07.jpg" data-lightbox="gallery1" data-title="レザー製品ミシン作業"><img src="img/gallery07.jpg" alt="レザー製品ミシン作業"></a></li>
+          <li><a href="img/gallery08.jpg" data-lightbox="gallery1" data-title="レザー製品ミシン作業"><img src="img/gallery08.jpg" alt="レザー製品ミシン作業"></a></li>
+          <li><a href="img/gallery09.jpg" data-lightbox="gallery1" data-title="レザー製品ミシン作業"><img src="img/gallery09.jpg" alt="レザー製品ミシン作業"></a></li>
+          <li><a href="img/gallery10.jpg" data-lightbox="gallery1" data-title="レザー製品ミシン作業"><img src="img/gallery10.jpg" alt="レザー製品ミシン作業"></a></li>
+          <li><a href="img/gallery11.jpg" data-lightbox="gallery1" data-title="レザー製品ミシン作業"><img src="img/gallery11.jpg" alt="レザー製品ミシン作業"></a></li>
+          <li><a href="img/gallery12.jpg" data-lightbox="gallery1" data-title="レザー製品ミシン作業"><img src="img/gallery12.jpg" alt="レザー製品ミシン作業"></a></li>
+          <li><a href="img/gallery13.jpg" data-lightbox="gallery1" data-title="レザー製品ミシン作業"><img src="img/gallery13.jpg" alt="レザー製品ミシン作業"></a></li>
+          <li><a href="img/gallery14.jpg" data-lightbox="gallery1" data-title="レザー製品ミシン作業"><img src="img/gallery14.jpg" alt="レザー製品ミシン作業"></a></li>
+          <li><a href="img/gallery15.jpg" data-lightbox="gallery1" data-title="レザー製品ミシン作業"><img src="img/gallery15.jpg" alt="レザー製品ミシン作業"></a></li>
         </ul>
       </div>
     </section>
@@ -152,19 +164,19 @@
                   </tr>
                   <tr>
                     <th><time datetime="2009">2009年</time></th>
-                    <td><p>ブランドリペアの会社に勤め、<wbr>革修理の技術を学びつつ、<br>自身の制作活動を続ける。</p></td>
+                    <td><p>ブランドリペアの会社に勤めながら革修理の技術を学びつつ、<wbr>自身の制作活動を続ける。</p></td>
                   </tr>
                   <tr>
                     <th><time datetime="2018">2018年</time></th>
-                    <td><p>結婚、出産を経て子育てしながら<wbr>マルシェ等に出店。<br>ワークショップを開催。</p></td>
+                    <td><p>結婚・出産を経て子育てしながらマルシェ等に出店。<wbr>ワークショップを開催。</p></td>
                   </tr>
                   <tr>
                     <th><time datetime="2023">2023年</time></th>
-                    <td><p>日本ライン花木センター内にて<br>leatherRollin'として初の工房オープン。</p></td>
+                    <td><p>日本ライン花木センター内にて<wbr>leatherRollin'として初の工房オープン。</p></td>
                   </tr>
                   <tr>
                     <th><time datetime="2025">2025年</time></th>
-                    <td><p>2024年をもって店舗での営業を終了。<br>オンライン販売を中心とした運営に移行。</p></td>
+                    <td><p>2024年をもって店舗での営業を終了。<wbr>オンライン販売を中心とした運営に移行。</p></td>
                   </tr>
                 </tbody>
               </table>
@@ -251,15 +263,16 @@
 
 
   <!--=================== Footer ===================-->
-  <footer>
+  <footer id="footer">
     <div class="contentsBlock">
       <div class="footer--logoBlock">
         <div class="flexBlock"><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><p>leather workshop</p></div>
         <p class="footer--shopName">leather Rollin'</p>
       </div>
 
-      <a href="#contact" class="footer--toContact">ご注文やご依頼などは<wbr>お気軽に<span>Contact</span><wbr>よりご連絡ください。</a>
+      <a href="#contact" class="footer--toContact">ご注文やご依頼などはお気軽に<wbr><span>Contact</span><wbr>よりご連絡ください。</a>
 
+      <p id="page-top"><a href="#">Page Top</a></p>
       <small>copyright ©leatherRollin' All Right Reserved.</small>
 
     </div>
@@ -280,6 +293,15 @@
   <!-- news -->
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="js/news.js"></script>
+
+  <!-- gallery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
+  <script src="js/gallery.js"></script>
+
+
+  <!-- page-top -->
+  <script src="js/page-top.js"></script>
 </body>
 
 </html>

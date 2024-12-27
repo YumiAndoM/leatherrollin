@@ -29,6 +29,7 @@ time, mark, audio, video {
 p,
 a {
 	word-break: keep-all;
+	overflow-wrap: anywhere;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
