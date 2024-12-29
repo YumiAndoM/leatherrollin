@@ -29,7 +29,7 @@
   #g-nav.panelactive #g-nav-list {
     /*ナビの数が増えた場合縦スクロール*/
     position: fixed;
-    z-index: 300;
+    z-index: 1000;
     width: 100%;
     height: 100vh;
     /*表示する高さ*/

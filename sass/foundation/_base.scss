@@ -102,6 +102,8 @@ header {
     align-items: center;
     height: 70px;
 
+    text-decoration: none;
+
       img {
         width: 50px;
 
@@ -125,18 +127,33 @@ header {
   nav {
     ul {
       @include displayFlex;
+      // height: 60px;
 
       li {
         font-size: 0.8rem;
         display: flex;
         align-items: center;
-        height: 60px;
+        
 
         &:nth-of-type(6) {
           background-color: $cBlack;
+          border: 1px solid $backGround;
+          transition: 0.5s;
+
+          &:hover {
+            background-color: $backGround;
+            border: 1px solid $cBlack;
+            transition: 0.5s;
+          }
 
           a {
             color: $cWhite !important;
+            width: 100%;
+
+            &:hover {
+              color: $cBlack !important;
+              transition: 0.5s;
+            }
           }
         }
 
@@ -320,6 +337,14 @@ header {
     transform: translateY(50%);
     right: 1rem;
     @include fontFredericka;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: $cWhite;
+      color: $cBlack;
+      transition: 0.5s;
+
+    }
   }
 }
 
@@ -356,6 +381,36 @@ header {
   }
 
   .online {
+
+    &--slide {
+      position:relative;
+      z-index: 1;
+      width: 100%;
+        
+    }
+
+    /*　背景画像設定　*/
+
+    &--slide-item01 {
+        background:url(../img/onlineshop.jpg);
+    }
+
+    &--slide-item02 {
+        background:url(../img/onlineshop02.jpg);
+    }
+
+    &--slide-item03 {
+        background:url(../img/onlineshop03.jpg);
+    }
+
+    &--slide-item {
+      width: 100%;/*各スライダー全体の横幅を画面の高さいっぱい（100%）にする*/
+    height:70vh;/*各スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+    background-repeat: no-repeat;/*背景画像をリピートしない*/
+    background-position: center;/*背景画像の位置を中央に*/
+    background-size: cover;/*背景画像が.slider-item全体を覆い表示*/
+    }
+
     &--catchCopy {
       display: inline;
       transform: translateY(5rem);
@@ -384,44 +439,64 @@ header {
       }
     }
 
-    &--link {
-      text-decoration: none;
-      position: absolute;
-      z-index: 10;
-      background-color: $backGround;
-      color: $cBlack;
-      border: 1px solid $cBlack;
-      padding: 1rem;
-      letter-spacing: 0.1rem;
-      font-size: 1.6rem;
-      bottom: 0;
-      transform: translateY(50%) translateX(-50%);
-      left: 50%;
-      @include fontFredericka;
 
-      @include max(s) {
-        width: 60%;
-        text-align: center;
-      }
-    }
   }
 
-  ul {
-    // position: absolute;
-    z-index: 1;
-    li {
-      img {
-        width: 100%;
-        aspect-ratio: 10 / 5;
-        object-fit: cover;
+}
 
-        @include max(s) {
-          aspect-ratio: 4 / 5;
 
-        }
-      }
-    }
+
+.btn_box{
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  transform: translateY(50%) translateX(-50%);
+  left: 50%;
+  bottom: 0;
+  z-index: 300;
+}
+
+.btn{
+  color: $cBlack;
+  @include fontFredericka;
+  font-size: 1.6rem;
+  letter-spacing: .1em;
+  text-align: center;
+  line-height: 60px;
+  width: 280px;
+  height: 60px;
+  background: $backGround;
+  margin: auto;
+  border:1px solid $cBlack;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  transition: 0.5s;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $cBlack;
+    color: $cWhite;
   }
+}
+
+.btn:after {
+  content: "≫";
+  // content: "\f101";
+  position: absolute;
+  right: 20px;
+  color: $cBlack;
+}
+
+.btn:hover:after {
+  animation: fuwafuwa .5s linear infinite;
+  color: $cWhite;
+}
+
+@keyframes fuwafuwa{
+  0%{transform:translateX(0)}
+  50%{transform:translateX(-5px)}
+  100%{transform:translateX(0)}
 }
 
 
@@ -449,9 +524,8 @@ header {
     }
   }
 }
-/*==================================================
-ギャラリーのためのcss
-===================================*/
+
+/*----------ギャラリーのためのcss-----------*/
 
 .gallery{
   box-sizing: border-box;
@@ -475,6 +549,10 @@ list-style:none;
 	height:auto;
 	vertical-align: bottom;/*画像の下にできる余白を削除*/
   filter: grayscale(0.6);
+}
+
+.lb-caption {
+  color: $cWhite;
 }
 
 
@@ -801,12 +879,19 @@ footer {
   }
 }
 
+#footer{
+	// background:#333;
+	position: relative;
+	z-index: 1000;
+	// padding:100px 20px;
+}
 .footer {
 
   &--logoBlock {
     margin-left: auto;
     margin-right: auto;
     padding-top: 7rem;
+    
 
     .flexBlock {
       @include displayFlex($jC: center);
@@ -866,43 +951,18 @@ footer {
 }
 
 
-.toTop {
-  color: $cBlack;
-  background-color: $backGround;
-  display: inline-block;
-  text-decoration: none;
-  width: 70px;
-  height: 70px;
-  line-height: 70px;
-  border-radius: 50%;
-  font-size: 2rem;
-  position: fixed;
-  z-index: 15;
-  bottom: 70px;
-  right: 3rem;
-  text-align: center;
-  border: 1px solid $cGray;
-
-  @include max(s) {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.6rem;
-    right: 1rem;
-    bottom: 30px;
-  }
-}
 
 
 /*========= ページトップのためのCSS ===============*/
 /*リンクの形状*/
-// TODO:見えないから見えるようにする
+
 // https://ugokuweb.coco-factory.jp/ugokuweb/move01/8-1-6/
+
 #page-top a{
 	display: flex;
 	justify-content:center;
 	align-items:center;
-	background:#942D2F;
+	background: $cBlack;
 	border-radius: 5px;
 	width: 60px;
 	height: 60px;
@@ -912,17 +972,25 @@ footer {
 	text-decoration: none;
 	font-size:0.6rem;
 	transition:all 0.3s;
+  border: 1px solid $cWhite;
+}
+
+.triangle {
+  width: 50%;
+  aspect-ratio: 1/cos(45deg);
+  clip-path: polygon(50% 0,100% 100%,0 100%);;
+  background-color: $cWhite;
 }
 
 #page-top a:hover{
-	background: #777;
+	background: $cGray;
 }
 
 /*リンクを右下に固定*/
 #page-top {
 	position: fixed;
 	right: 10px;
-	z-index: 9999;
+	z-index: 500;
     /*はじめは非表示*/
 	opacity: 0;
 	transform: translateY(100px);
@@ -951,20 +1019,12 @@ footer {
 }
 @keyframes DownAnime{
   from {
-  opacity: 1;
+  	opacity: 1;
 	transform: translateY(0);
   }
   to {
-  opacity: 1;
+  	opacity: 1;
 	transform: translateY(100px);
   }
 }
 
-// /*検証のためのCSS*/
-// section{
-// padding: 500px 0;
-// }
-
-// #footer{
-// background:#333;
-// }

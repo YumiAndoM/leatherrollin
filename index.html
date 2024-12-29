@@ -41,6 +41,8 @@
   <!-- gallery -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" />
 
+  <!-- online-slide -->
+  <script src="js/online-slide.js"></script>
 
 </head>
 <body>
@@ -48,7 +50,8 @@
   <!--=================== header ===================-->
   <header>
     <div class="contentsBlock flexBlock">
-      <div class="header--logoGroup"><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><h1>leather Rollin'</h1>
+      <div>
+        <a href="#top" class="header--logoGroup"><img src="img/leather-rollin-logo.png" alt="leatherRollin'ロゴ画像"><h1>leather Rollin'</h1></a>
         </div>
 
       <div class="openbtn"><span></span><span></span><span></span></div>
@@ -110,12 +113,15 @@
           
         </div>
 
-        <ul>
-          <li><img src="img/onlineshop.jpg" alt="レザー製品画像1"></li>
-          <!-- <li><img src="img/onlineshop02.jpg" alt="レザー製品画像2"></li>
-          <li><img src="img/onlineshop03.jpg" alt="レザー製品画像3"></li> -->
+        <ul class="online--slide">
+          <li class="online--slide-item online--slide-item01"></li>
+          <li class="online--slide-item online--slide-item02"></li>
+          <li class="online--slide-item online--slide-item03"></li>
         </ul>
-        <a href="#" class="online--link">OnlineShop <span>>></span></a>
+        <!-- <a href="#" class="online--link">OnlineShop <span>>></span></a> -->
+        <div class="btn_box">
+          <a href="#" class="btn animation">OnlineShop</a>
+        </div>
       </div>
     </section>
 
@@ -261,7 +267,7 @@
     </section>
   </main>
 
-
+<p id="page-top"><a href="#top"><span class="triangle"></span></a></p>
   <!--=================== Footer ===================-->
   <footer id="footer">
     <div class="contentsBlock">
@@ -272,7 +278,7 @@
 
       <a href="#contact" class="footer--toContact">ご注文やご依頼などはお気軽に<wbr><span>Contact</span><wbr>よりご連絡ください。</a>
 
-      <p id="page-top"><a href="#">Page Top</a></p>
+      
       <small>copyright ©leatherRollin' All Right Reserved.</small>
 
     </div>
@@ -280,7 +286,7 @@
 
 
   <!-- js -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
   <!-- fv -->
@@ -293,6 +299,8 @@
   <!-- news -->
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="js/news.js"></script>
+  <!-- online-shop -->
+  <script src="js/online-slide.js"></script>
 
   <!-- gallery -->
 
