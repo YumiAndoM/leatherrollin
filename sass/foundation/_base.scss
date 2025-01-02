@@ -73,6 +73,126 @@ section {
 
 
 
+/*------------------loading--------------------*/
+
+#splash {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #333;
+	z-index: 9999999;
+	text-align:center;
+	color:#fff;
+}
+
+#splash-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+/*------- 画面遷移のためのCSS -------*/
+
+body{
+    background:#333;/*遷移アニメーションと同じ色を指定*/
+}
+
+body.appear{
+    background:$backGround;/*画面を開いた後の背景色を指定*/
+}
+
+/*画面遷移アニメーション*/
+.splashbg1,
+.splashbg2{
+    display: none;
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear .splashbg1,
+body.appear .splashbg2{
+	display:block;
+}
+
+/*上に消えるエリア*/
+body.appear .splashbg1{
+	animation-name:PageAnime;
+	animation-duration:1.4s;
+	animation-timing-function:ease-in-out;
+	animation-fill-mode:forwards;
+    content: "";
+    position:fixed;
+	z-index: 999;
+    width: 100%;
+    height: 100vh;
+    bottom:50%;
+	left:0;
+    transform: scaleY(1);
+    background-color: #333;/*伸びる背景色の設定*/
+}
+
+@keyframes PageAnime{
+	0% {
+		transform-origin:top;
+		transform:scaleY(1);
+	}
+
+	100% {
+		transform-origin:top;
+		transform:scaleY(0);
+	}
+}
+
+/*下に消えるエリア*/
+body.appear .splashbg2{
+    animation-name:PageAnime2;
+	animation-duration:1.4s;
+	animation-timing-function:ease-in-out;
+	animation-fill-mode:forwards;
+    content: "";
+    position:fixed;
+	z-index: 999;
+    width: 100%;
+    height: 100vh;
+    top: 50%;
+	left:0;
+    transform: scaleY(1);
+    background-color: #333;/*伸びる背景色の設定*/
+}
+
+@keyframes PageAnime2{
+	0% {
+		transform-origin:bottom;
+		transform:scaleY(1);
+	}
+	100% {
+		transform-origin:bottom;
+		transform:scaleY(0);
+	}
+}
+
+/*画面遷移の後現れるコンテンツ設定*/
+#container{
+	opacity: 0;/*はじめは透過0に*/
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear #container{
+	animation-name:PageAnimeAppear;
+	animation-duration:1s;
+	animation-delay:0.2s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+
+@keyframes PageAnimeAppear{
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+}
+}
+
 
 
 /*------------------header--------------------*/
@@ -123,58 +243,11 @@ header {
       }
     }
   }
-
-  nav {
-    ul {
-      @include displayFlex;
-      // height: 60px;
-
-      li {
-        font-size: 0.8rem;
-        display: flex;
-        align-items: center;
-        
-
-        &:nth-of-type(6) {
-          background-color: $cBlack;
-          border: 1px solid $backGround;
-          transition: 0.5s;
-
-          &:hover {
-            background-color: $backGround;
-            border: 1px solid $cBlack;
-            transition: 0.5s;
-          }
-
-          a {
-            color: $cWhite !important;
-            width: 100%;
-
-            &:hover {
-              color: $cBlack !important;
-              transition: 0.5s;
-            }
-          }
-        }
-
-        a {
-          text-decoration: none;
-          color: $cBlack;
-          padding: 100% 0 0 0.8rem;
-          box-sizing: border-box;
-          @include fontFredericka;
-          
-
-          img {
-            width: 20px;
-            
-          }
-        }
-      }
-    }
-  }
 }
 
+/*==============================
+naviは_js-nav.scssにあります。
+==============================*/
 
 
 
@@ -200,6 +273,76 @@ header {
     
   }
 }
+
+/*----スライダーのためのcss-----*/
+#fv--slider {
+    width: 100%;
+    height: 100vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+}
+
+
+
+/*========= 流れるテキスト ===============*/
+
+/*全共通*/
+
+.slide-in {
+	overflow: hidden;
+    display: inline-block;
+}
+
+.slide-in_inner {
+	display: inline-block;
+  color: $cWhite;
+
+}
+
+/*左右のアニメーション*/
+.leftAnime{
+    opacity: 0;/*事前に透過0にして消しておく*/
+}
+
+.slideAnimeLeftRight {
+	animation-name:slideTextX100;
+  animation-delay: 1.7s;
+	animation-duration:3s;
+	animation-fill-mode:forwards;
+    opacity: 0;
+}
+
+@keyframes slideTextX100 {
+  from {
+	transform: translateX(-100%); /*要素を左の枠外に移動*/
+        opacity: 0;
+  }
+
+  to {
+	transform: translateX(0);/*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+
+.slideAnimeRightLeft {
+	animation-name:slideTextX-100;
+  animation-delay: 1.7s;
+	animation-duration:3s;
+	animation-fill-mode:forwards;
+    opacity: 0;
+}
+
+
+@keyframes slideTextX-100 {
+  from {
+	transform: translateX(100%);/*要素を右の枠外に移動*/
+    opacity: 0;
+  }
+
+  to {
+	transform: translateX(0);/*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+
 
 
 /*=== 丸が動いてスクロールを促す ====*/
@@ -312,6 +455,59 @@ header {
     }
   }
 
+
+/*---------スライダー---------*/
+
+  .news--slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
+    width:84%;
+    margin:0 auto;
+
+    @include max(s) {
+    width: 80%;
+    }
+}
+
+.news--slider img {
+    width:90%;/*スライダー内の画像を横幅100%に*/
+    height:auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+
+.news--slider .slick-slide {
+    margin:0 10px;
+}
+
+/*矢印の設定*/
+
+/*戻る、次へ矢印の位置*/
+.slick-prev, 
+.slick-next {
+    position: absolute;/*絶対配置にする*/
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #666;/*矢印の色*/
+    border-right: 2px solid #666;/*矢印の色*/
+    height: 10px;
+    width: 10px;
+}
+
+.slick-prev {/*戻る矢印の位置と形状*/
+    left: -1.5%;
+    transform: rotate(-135deg);
+}
+
+.slick-next {/*次へ矢印の位置と形状*/
+    right: -1.5%;
+    transform: rotate(45deg);
+}
+
+
+
+/*---------VewMore---------*/
 
 
   &--vewMore {

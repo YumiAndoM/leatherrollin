@@ -47,6 +47,22 @@
 </head>
 <body>
 
+
+
+<!--=================== loading ===================-->
+<div id="splash">
+<div id="splash-logo"><img src="img/leather-rollin-logo.ico" alt=""></div>
+<!--/splash--></div>
+<div class="splashbg1"></div>
+<div class="splashbg2"></div>
+<!---画面遷移用-->
+<div id="container">
+
+
+
+
+
+
   <!--=================== header ===================-->
   <header>
     <div class="contentsBlock flexBlock">
@@ -63,7 +79,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#onlineshop">OnlineShop</a></li>
-          <li><a href="#"><img src="img/insta_logo.png" alt=""></a></li>
+          <li><a href="https://www.instagram.com/rollin_minobu.hirose/"><img src="img/insta_logo.png" alt=""></a></li>
         </ul>
       </nav>
     </div>
@@ -79,7 +95,9 @@
     <!--=================== main--FV ===================-->
     <section class="fv" id="top">
       <div id="fv--slider">
-        <p class="fv--shopName">leather Rollin'</p>
+        <p class="fv--shopName"><span class="slide-in leftAnime">
+          <span class="slide-in_inner leftAnimeInner">leather Rollin'</span>
+        </span></p>
         <p class="fv--catchCopy">世界にひとつだけ、<wbr>自分だけのレザー</p>
 
         <div class="scrolldown"><span>Scroll</span></div>
@@ -99,7 +117,7 @@
             <li><a href="#"><img src="img/kari.jpg" alt=""></a></li><!--ワードプレスでインスタ画像を連携させてインスタ画像が出るようにしたいと思っています。そのためいったんaltなしにしています-->
           </ul>
         </div>
-        <a href="#" class="newsBlock--vewMore">Vew More</a>
+        <a href="https://www.instagram.com/rollin_minobu.hirose/" class="newsBlock--vewMore">Vew More</a>
       </div>
     </section>
     
@@ -120,7 +138,7 @@
         </ul>
         <!-- <a href="#" class="online--link">OnlineShop <span>>></span></a> -->
         <div class="btn_box">
-          <a href="#" class="btn animation">OnlineShop</a>
+          <a href="https://rollin7.base.shop/" class="btn animation">OnlineShop</a>
         </div>
       </div>
     </section>
@@ -260,8 +278,8 @@
     <section class="bannerWrapper">
       <div class="contentsBlock">
         <ul>
-          <li><a href="#"><img src="img/bn_onlineshop.jpg" alt="オンラインショップへ"></a></li>
-          <li><a href="#"><img src="img/bn_instagram.jpg" alt="Instagramへ"></a></li>
+          <li><a href="https://rollin7.base.shop/"><img src="img/bn_onlineshop.jpg" alt="オンラインショップへ"></a></li>
+          <li><a href="https://www.instagram.com/rollin_minobu.hirose/"><img src="img/bn_instagram.jpg" alt="Instagramへ"></a></li>
         </ul>
       </div>
     </section>
@@ -283,11 +301,18 @@
 
     </div>
   </footer>
-
+<!--/container--></div>
 
   <!-- js -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
+  <!-- loading -->
+  <script src="js/loading.js"></script>
+
+<!-- shop-name -->
+  <script src="js/shop-name.js"></script>
 
   <!-- fv -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/vegas.min.js"></script>

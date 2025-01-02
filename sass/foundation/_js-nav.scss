@@ -1,5 +1,58 @@
 @use "../global" as *;
 
+
+
+nav {
+    ul {
+    @include displayFlex;
+      // height: 60px;
+
+    li {
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        
+
+        &:nth-of-type(6) {
+        background-color: $cBlack;
+        border: 1px solid $backGround;
+        transition: 0.5s;
+
+        &:hover {
+            background-color: $backGround;
+            border: 1px solid $cBlack;
+            transition: 0.5s;
+        }
+
+        a {
+            color: $cWhite !important;
+            width: 100%;
+
+            &:hover {
+            color: $cBlack !important;
+            transition: 0.5s;
+            }
+        }
+        }
+
+        a {
+        text-decoration: none;
+        color: $cBlack;
+        padding: 100% 0 0 0.8rem;
+        box-sizing: border-box;
+        @include fontFredericka;
+        
+
+        img {
+            width: 20px;
+            
+        }
+        }
+    }
+    }
+}
+
+
 /*========= ナビゲーションのためのCSS ===============*/
 
 

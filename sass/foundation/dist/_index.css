@@ -7,9 +7,19 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 8rem;
 }
+@media only screen and (max-width: 700px) {
+  html {
+    scroll-padding-top: 6rem;
+  }
+}
 
 body {
   background-color: #D9D9D9;
+}
+
+html,
+body {
+  width: 100vw;
 }
 
 .contentsBlock {
@@ -21,14 +31,25 @@ body {
 }
 @media only screen and (max-width: 900px) {
   .contentsBlock {
-    width: 100%;
-    max-width: 800px;
+    width: 80%;
+    max-width: 720px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .contentsBlock {
+    width: 90%;
+    max-width: 630px;
   }
 }
 
 section {
   margin-bottom: 8rem !important;
   width: 100%;
+}
+@media only screen and (max-width: 700px) {
+  section {
+    margin-bottom: 6rem !important;
+  }
 }
 section h2 {
   font-family: "Fredericka the Great", serif;
@@ -47,6 +68,126 @@ section h2 {
   text-align: center;
 }
 
+/*------------------loading--------------------*/
+#splash {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  z-index: 9999999;
+  text-align: center;
+  color: #fff;
+}
+
+#splash-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*------- 画面遷移のためのCSS -------*/
+body {
+  background: #333;
+  /*遷移アニメーションと同じ色を指定*/
+}
+
+body.appear {
+  background: #D9D9D9;
+  /*画面を開いた後の背景色を指定*/
+}
+
+/*画面遷移アニメーション*/
+.splashbg1,
+.splashbg2 {
+  display: none;
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear .splashbg1,
+body.appear .splashbg2 {
+  display: block;
+}
+
+/*上に消えるエリア*/
+body.appear .splashbg1 {
+  animation-name: PageAnime;
+  animation-duration: 1.4s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  content: "";
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  bottom: 50%;
+  left: 0;
+  transform: scaleY(1);
+  background-color: #333;
+  /*伸びる背景色の設定*/
+}
+
+@keyframes PageAnime {
+  0% {
+    transform-origin: top;
+    transform: scaleY(1);
+  }
+  100% {
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+}
+/*下に消えるエリア*/
+body.appear .splashbg2 {
+  animation-name: PageAnime2;
+  animation-duration: 1.4s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  content: "";
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  top: 50%;
+  left: 0;
+  transform: scaleY(1);
+  background-color: #333;
+  /*伸びる背景色の設定*/
+}
+
+@keyframes PageAnime2 {
+  0% {
+    transform-origin: bottom;
+    transform: scaleY(1);
+  }
+  100% {
+    transform-origin: bottom;
+    transform: scaleY(0);
+  }
+}
+/*画面遷移の後現れるコンテンツ設定*/
+#container {
+  opacity: 0;
+  /*はじめは透過0に*/
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear #container {
+  animation-name: PageAnimeAppear;
+  animation-duration: 1s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes PageAnimeAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /*------------------header--------------------*/
 header {
   position: fixed;
@@ -62,13 +203,24 @@ header .flexBlock {
   padding: 0 1rem;
   box-sizing: border-box;
 }
+@media only screen and (max-width: 700px) {
+  header .flexBlock {
+    padding: 0 0.2rem;
+  }
+}
 header .header--logoGroup {
   display: flex;
   align-items: center;
   height: 70px;
+  text-decoration: none;
 }
 header .header--logoGroup img {
   width: 50px;
+}
+@media only screen and (max-width: 700px) {
+  header .header--logoGroup img {
+    width: 40px;
+  }
 }
 header .header--logoGroup h1 {
   font-size: 2rem;
@@ -77,27 +229,15 @@ header .header--logoGroup h1 {
   font-weight: 400;
   font-style: normal;
 }
-header nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-header nav ul li {
-  font-size: 1.2rem;
-}
-header nav ul li a {
-  text-decoration: none;
-  color: #333333;
-  padding: 100% 0.6rem;
-  box-sizing: border-box;
-  font-family: "Fredericka the Great", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-header nav ul li a img {
-  width: 30px;
+@media only screen and (max-width: 700px) {
+  header .header--logoGroup h1 {
+    font-size: 1.4rem;
+  }
 }
 
+/*==============================
+naviは_js-nav.scssにあります。
+==============================*/
 /*------------------main--FV--------------------*/
 .fv--shopName {
   font-size: 4rem;
@@ -117,35 +257,238 @@ header nav ul li a img {
   display: block;
 }
 
+/*----スライダーのためのcss-----*/
+#fv--slider {
+  width: 100%;
+  height: 100vh;
+  /*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+}
+
+/*========= 流れるテキスト ===============*/
+/*全共通*/
+.slide-in {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.slide-in_inner {
+  display: inline-block;
+  color: #ffffff;
+}
+
+/*左右のアニメーション*/
+.leftAnime {
+  opacity: 0;
+  /*事前に透過0にして消しておく*/
+}
+
+.slideAnimeLeftRight {
+  animation-name: slideTextX100;
+  animation-delay: 1.7s;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes slideTextX100 {
+  from {
+    transform: translateX(-100%);
+    /*要素を左の枠外に移動*/
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    /*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+.slideAnimeRightLeft {
+  animation-name: slideTextX-100;
+  animation-delay: 1.7s;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes slideTextX-100 {
+  from {
+    transform: translateX(100%);
+    /*要素を右の枠外に移動*/
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    /*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+/*=== 丸が動いてスクロールを促す ====*/
+/*スクロールダウン全体の場所*/
+.scrolldown {
+  /*描画位置※位置は適宜調整してください*/
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown span {
+  /*描画位置*/
+  position: absolute;
+  left: 10px;
+  bottom: 1rem;
+  /*テキストの形状*/
+  color: #eee;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  /*縦書き設定*/
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
+
+/* 丸の描写 */
+.scrolldown:before {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 1rem;
+  left: -4px;
+  /*丸の形状*/
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #eee;
+  /*丸の動き1.6秒かけて透過し、永遠にループ*/
+  animation: circlemove 1.6s ease-in-out infinite, cirlemovehide 1.6s ease-out infinite;
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove {
+  0% {
+    bottom: 70px;
+  }
+  100% {
+    bottom: 10px;
+  }
+}
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* 線の描写 */
+.scrolldown:after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  /*線の形状*/
+  width: 2px;
+  height: 50px;
+  background: #eee;
+}
+
 /*------------------main--news--------------------*/
 .newsWrapper {
   width: 100%;
   height: 100%;
   background: linear-gradient(to top, #999999 70%, #D9D9D9 30%);
 }
+@media only screen and (max-width: 700px) {
+  .newsWrapper {
+    background: linear-gradient(to top, #999999 50%, #D9D9D9 50%);
+  }
+}
 
 .contentsBlock {
   position: relative;
-  padding-bottom: 3rem;
+  padding: 0 1rem 3rem;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .newsBlock {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  width: 100%;
+  /*---------スライダー---------*/
+  /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+  /*矢印の設定*/
+  /*戻る、次へ矢印の位置*/
+  /*---------VewMore---------*/
+}
+@media only screen and (max-width: 700px) {
+  .newsBlock {
+    flex-direction: column;
+  }
 }
 .newsBlock h2 {
   padding-right: 2rem;
 }
-.newsBlock ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@media only screen and (max-width: 700px) {
+  .newsBlock h2 {
+    padding: 0;
+    margin-bottom: 2rem;
+  }
 }
-.newsBlock ul li img {
+.newsBlock .news--slider {
+  /*横幅94%で左右に余白を持たせて中央寄せ*/
+  width: 84%;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 700px) {
+  .newsBlock .news--slider {
+    width: 80%;
+  }
+}
+.newsBlock .news--slider img {
   width: 90%;
-  margin-left: 10%;
+  /*スライダー内の画像を横幅100%に*/
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.newsBlock .news--slider .slick-slide {
+  margin: 0 10px;
+}
+.newsBlock .slick-prev,
+.newsBlock .slick-next {
+  position: absolute;
+  /*絶対配置にする*/
+  top: 42%;
+  cursor: pointer;
+  /*マウスカーソルを指マークに*/
+  outline: none;
+  /*クリックをしたら出てくる枠線を消す*/
+  border-top: 2px solid #666;
+  /*矢印の色*/
+  border-right: 2px solid #666;
+  /*矢印の色*/
+  height: 10px;
+  width: 10px;
+}
+.newsBlock .slick-prev {
+  /*戻る矢印の位置と形状*/
+  left: -1.5%;
+  transform: rotate(-135deg);
+}
+.newsBlock .slick-next {
+  /*次へ矢印の位置と形状*/
+  right: -1.5%;
+  transform: rotate(45deg);
 }
 .newsBlock--vewMore {
   text-decoration: none;
@@ -157,10 +500,16 @@ header nav ul li a img {
   position: absolute;
   bottom: 0;
   transform: translateY(50%);
-  right: 0;
+  right: 1rem;
   font-family: "Fredericka the Great", serif;
   font-weight: 400;
   font-style: normal;
+  transition: 0.5s;
+}
+.newsBlock--vewMore:hover {
+  background-color: #ffffff;
+  color: #333333;
+  transition: 0.5s;
 }
 
 /*------------------main--onlineshop--------------------*/
@@ -185,6 +534,35 @@ header nav ul li a img {
   transform: translateY(-50%) translateX(-50%);
   padding: 1rem 2rem;
   left: 50%;
+}
+.onlineWrapper .online {
+  /*　背景画像設定　*/
+}
+.onlineWrapper .online--slide {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.onlineWrapper .online--slide-item01 {
+  background: url(../img/onlineshop.jpg);
+}
+.onlineWrapper .online--slide-item02 {
+  background: url(../img/onlineshop02.jpg);
+}
+.onlineWrapper .online--slide-item03 {
+  background: url(../img/onlineshop03.jpg);
+}
+.onlineWrapper .online--slide-item {
+  width: 100%;
+  /*各スライダー全体の横幅を画面の高さいっぱい（100%）にする*/
+  height: 70vh;
+  /*各スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+  background-repeat: no-repeat;
+  /*背景画像をリピートしない*/
+  background-position: center;
+  /*背景画像の位置を中央に*/
+  background-size: cover;
+  /*背景画像が.slider-item全体を覆い表示*/
 }
 .onlineWrapper .online--catchCopy {
   display: inline;
@@ -215,38 +593,76 @@ header nav ul li a img {
     margin-top: 10rem;
   }
 }
-.onlineWrapper .online--link {
-  text-decoration: none;
+
+.btn_box {
   position: absolute;
-  z-index: 10;
-  background-color: #D9D9D9;
-  color: #333333;
-  border: 1px solid #333333;
-  padding: 1rem;
-  letter-spacing: 0.1rem;
-  font-size: 1.6rem;
-  bottom: 0;
+  width: 100%;
+  margin: 0;
   transform: translateY(50%) translateX(-50%);
   left: 50%;
+  bottom: 0;
+  z-index: 300;
+}
+
+.btn {
+  color: #333333;
   font-family: "Fredericka the Great", serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 60px;
+  width: 280px;
+  height: 60px;
+  background: #D9D9D9;
+  margin: auto;
+  border: 1px solid #333333;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  transition: 0.5s;
+  text-decoration: none;
 }
-.onlineWrapper ul {
-  z-index: 1;
-}
-.onlineWrapper ul li img {
-  width: 100%;
-  aspect-ratio: 10/5;
-  object-fit: cover;
+.btn:hover {
+  background-color: #333333;
+  color: #ffffff;
 }
 
+.btn:after {
+  content: "≫";
+  position: absolute;
+  right: 20px;
+  color: #333333;
+}
+
+.btn:hover:after {
+  animation: fuwafuwa 0.5s linear infinite;
+  color: #ffffff;
+}
+
+@keyframes fuwafuwa {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 /*------------------main--gallery--------------------*/
 .galleryWrapper .contentsBlock {
   position: relative;
   border: 1px solid #333333;
   padding: 4rem 2rem 3rem;
   box-sizing: border-box;
+}
+@media only screen and (max-width: 700px) {
+  .galleryWrapper .contentsBlock {
+    padding: 4rem 1rem 3rem;
+  }
 }
 .galleryWrapper .contentsBlock h2 {
   position: absolute;
@@ -256,17 +672,39 @@ header nav ul li a img {
   background-color: #D9D9D9;
   padding: 1rem;
 }
-.galleryWrapper .contentsBlock ul {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
+
+/*----------ギャラリーのためのcss-----------*/
+.gallery {
+  box-sizing: border-box;
+  columns: 3;
+  /*段組みの数*/
+  padding: 0 15px;
+  /*ギャラリー左右に余白をつける*/
+  margin: 0;
 }
-.galleryWrapper .contentsBlock ul li {
-  width: 32%;
+@media only screen and (max-width: 700px) {
+  .gallery {
+    columns: 2;
+  }
 }
-.galleryWrapper .contentsBlock ul li img {
+
+.gallery li {
+  margin-bottom: 20px;
+  /*各画像下に余白をつける*/
+  list-style: none;
+}
+
+/*ギャラリー内のイメージは横幅100%にする*/
+.gallery img {
   width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  /*画像の下にできる余白を削除*/
+  filter: grayscale(0.6);
+}
+
+.lb-caption {
+  color: #ffffff;
 }
 
 /*------------------main--about--------------------*/
@@ -313,10 +751,13 @@ header nav ul li a img {
 }
 .about--leftBlock {
   padding-right: 1rem;
+  box-sizing: border-box;
+  width: 50%;
 }
 @media only screen and (max-width: 900px) {
   .about--leftBlock {
     padding: 0;
+    width: 100%;
   }
 }
 .about--leftBlock p, .about--leftBlock time {
@@ -343,6 +784,7 @@ header nav ul li a img {
 .about--tableBlock table {
   width: 100%;
   margin-bottom: 3rem;
+  box-sizing: border-box;
 }
 @media only screen and (max-width: 900px) {
   .about--tableBlock table {
@@ -350,28 +792,48 @@ header nav ul li a img {
   }
 }
 .about--tableBlock table th {
-  width: 20%;
+  width: 100%;
   text-align: left;
   letter-spacing: 0.2rem;
   font-weight: bold;
   font-size: 1.1rem;
-  vertical-align: middle;
+  vertical-align: bottom;
+  display: block;
 }
 .about--tableBlock table td {
-  padding: 1.2rem 0;
-  width: 80%;
+  padding: 0.5rem 0 1.2rem;
+  width: 100%;
+  display: block;
   letter-spacing: 0.1rem;
-  vertical-align: middle;
+  vertical-align: top;
 }
 .about--tableBlock table td p {
   line-height: 1.6rem;
-  text-align: justify;
   letter-spacing: 0.1;
+}
+@media only screen and (max-width: 700px) {
+  .about--tableBlock table td p {
+    font-size: 0.9rem;
+  }
 }
 .about--text {
   letter-spacing: 0.1rem;
   line-height: 1.6rem;
   margin-top: 0.6em;
+}
+@media only screen and (max-width: 700px) {
+  .about--text {
+    font-size: 0.9rem;
+  }
+}
+.about--rightBlock {
+  width: 50%;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 900px) {
+  .about--rightBlock {
+    width: 100%;
+  }
 }
 .about--rightBlock img {
   width: 100%;
@@ -382,6 +844,11 @@ header nav ul li a img {
     aspect-ratio: 10/5;
     object-fit: cover;
     margin-top: 3rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .about--rightBlock img {
+    aspect-ratio: 4/5;
   }
 }
 
@@ -397,6 +864,11 @@ header nav ul li a img {
 @media only screen and (max-width: 900px) {
   .contactForm {
     padding: 4rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .contactForm {
+    padding: 4rem 2rem;
   }
 }
 .contactForm::before {
@@ -418,10 +890,20 @@ header nav ul li a img {
   letter-spacing: 0.1rem;
   margin-bottom: 4rem;
 }
+@media only screen and (max-width: 700px) {
+  .contactForm--text {
+    font-size: 0.9rem;
+  }
+}
 .contactForm--text small {
   color: #ffffff;
   font-size: 0.9rem;
   margin-top: 1rem;
+}
+@media only screen and (max-width: 700px) {
+  .contactForm--text small {
+    font-size: 0.8rem;
+  }
 }
 .contactForm form {
   position: relative;
@@ -432,6 +914,11 @@ header nav ul li a img {
   justify-content: space-between;
   margin-bottom: 3rem;
 }
+@media only screen and (max-width: 700px) {
+  .contactForm form .flexBlock {
+    flex-direction: column;
+  }
+}
 .contactForm form .flexBlock label {
   color: #ffffff;
   width: 30%;
@@ -441,10 +928,23 @@ header nav ul li a img {
   font-weight: 400;
   font-style: normal;
 }
+@media only screen and (max-width: 700px) {
+  .contactForm form .flexBlock label {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
 .contactForm form .flexBlock input,
 .contactForm form .flexBlock select,
 .contactForm form .flexBlock textarea {
   width: 70%;
+}
+@media only screen and (max-width: 700px) {
+  .contactForm form .flexBlock input,
+.contactForm form .flexBlock select,
+.contactForm form .flexBlock textarea {
+    width: 100%;
+  }
 }
 .contactForm form .flexBlock input,
 .contactForm form .flexBlock select {
@@ -453,6 +953,11 @@ header nav ul li a img {
 .contactForm form .flexBlock textarea {
   height: 20rem;
   margin-bottom: 3rem;
+}
+@media only screen and (max-width: 700px) {
+  .contactForm form .flexBlock textarea {
+    margin-bottom: 1rem;
+  }
 }
 .contactForm form button {
   display: block;
@@ -465,6 +970,18 @@ header nav ul li a img {
   font-family: "Fredericka the Great", serif;
   font-weight: 400;
   font-style: normal;
+  transition: 0.5s;
+}
+.contactForm form button:hover {
+  background-color: #333333;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  transition: 0.5s;
+}
+@media only screen and (max-width: 700px) {
+  .contactForm form button {
+    width: 150px;
+  }
 }
 
 /*------------------main--banner--------------------*/
@@ -472,6 +989,18 @@ header nav ul li a img {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+@media only screen and (max-width: 700px) {
+  .bannerWrapper .contentsBlock ul {
+    flex-direction: column;
+  }
+}
+.bannerWrapper .contentsBlock ul li a {
+  transition: 0.5s;
+}
+.bannerWrapper .contentsBlock ul li a:hover {
+  opacity: 0.5;
+  transition: 0.5s;
 }
 .bannerWrapper .contentsBlock ul li img {
   width: 100%;
@@ -482,6 +1011,11 @@ footer {
   clip-path: polygon(70% 20%, 100% 0, 100% 100%, 0 100%, 0 0);
   background-color: #333333;
 }
+@media only screen and (max-width: 700px) {
+  footer {
+    clip-path: polygon(70% 10%, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
 footer .contentsBlock {
   text-align: center;
   padding-bottom: 0.5rem;
@@ -490,6 +1024,11 @@ footer small {
   display: block;
   color: #ffffff;
   font-size: 0.7rem;
+}
+
+#footer {
+  position: relative;
+  z-index: 1000;
 }
 
 .footer--logoBlock {
@@ -524,6 +1063,11 @@ footer small {
   margin-top: 1rem;
   letter-spacing: 0.1rem;
 }
+@media only screen and (max-width: 700px) {
+  .footer--shopName {
+    font-size: 2rem;
+  }
+}
 .footer--toContact {
   color: #ffffff;
   text-decoration: none;
@@ -532,6 +1076,24 @@ footer small {
   border: 1px solid #ffffff;
   margin-top: 3rem;
   margin-bottom: 2rem;
+  transition: 0.5s;
+}
+.footer--toContact span {
+  transition: 0.5s;
+}
+.footer--toContact:hover {
+  background-color: #D9D9D9;
+  color: #333333;
+  transition: 0.5s;
+}
+.footer--toContact:hover span {
+  color: #333333;
+  transition: 0.5s;
+}
+@media only screen and (max-width: 700px) {
+  .footer--toContact {
+    line-height: 1.6;
+  }
 }
 .footer--toContact span {
   color: #ffffff;
@@ -544,22 +1106,115 @@ footer small {
   letter-spacing: 0.1rem;
 }
 
-.toTop {
-  color: #333333;
-  background-color: #D9D9D9;
-  display: inline-block;
-  text-decoration: none;
-  width: 70px;
-  height: 70px;
-  line-height: 70px;
-  border-radius: 50%;
-  font-size: 2rem;
-  position: fixed;
-  z-index: 15;
-  bottom: 70px;
-  right: 3rem;
+/*========= ページトップのためのCSS ===============*/
+/*リンクの形状*/
+#page-top a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333333;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  color: #fff;
   text-align: center;
-  border: 1px solid #999999;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.6rem;
+  transition: all 0.3s;
+  border: 1px solid #ffffff;
+}
+
+.triangle {
+  width: 50%;
+  aspect-ratio: 1/cos(45deg);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background-color: #ffffff;
+}
+
+#page-top a:hover {
+  background: #999999;
+}
+
+/*リンクを右下に固定*/
+#page-top {
+  position: fixed;
+  right: 10px;
+  z-index: 500;
+  /*はじめは非表示*/
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+/*　上に上がる動き　*/
+#page-top.UpMove {
+  animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*　下に下がる動き　*/
+#page-top.DownMove {
+  animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(100px);
+  }
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav ul li {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+nav ul li:nth-of-type(6) {
+  background-color: #333333;
+  border: 1px solid #D9D9D9;
+  transition: 0.5s;
+}
+nav ul li:nth-of-type(6):hover {
+  background-color: #D9D9D9;
+  border: 1px solid #333333;
+  transition: 0.5s;
+}
+nav ul li:nth-of-type(6) a {
+  color: #ffffff !important;
+  width: 100%;
+}
+nav ul li:nth-of-type(6) a:hover {
+  color: #333333 !important;
+  transition: 0.5s;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #333333;
+  padding: 100% 0 0 0.8rem;
+  box-sizing: border-box;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+nav ul li a img {
+  width: 20px;
 }
 
 /*========= ナビゲーションのためのCSS ===============*/
@@ -574,7 +1229,7 @@ footer small {
     width: 100%;
     height: 100vh;
     /*ナビの高さ*/
-    background: #999;
+    background: #D9D9D9;
     /*動き*/
     transition: all 0.6s;
   }
@@ -592,7 +1247,7 @@ footer small {
   #g-nav.panelactive #g-nav-list {
     /*ナビの数が増えた場合縦スクロール*/
     position: fixed;
-    z-index: 300;
+    z-index: 1000;
     width: 100%;
     height: 100vh;
     /*表示する高さ*/
@@ -612,8 +1267,32 @@ footer small {
     transform: translate(-50%, -50%);
   }
 }
+@media only screen and (max-width: 900px) and (max-width: 900px) {
+  #g-nav ul {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 900px) {
+  #g-nav ul li {
+    margin: 1rem 0;
+  }
+}
 
 /*リストのレイアウト設定*/
+#g-nav li {
+  list-style: none;
+  text-align: center;
+}
+
+#g-nav li a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
 /*========= ボタンのためのCSS ===============*/
 @media only screen and (max-width: 900px) {
   .openbtn {
@@ -651,13 +1330,13 @@ footer small {
 
 @media only screen and (max-width: 900px) {
   .openbtn span:nth-of-type(2) {
-    top: 17px;
+    top: 18px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .openbtn span:nth-of-type(3) {
-    top: 22px;
+    top: 24px;
   }
 }
 
@@ -708,15 +1387,6 @@ footer small {
   }
 }
 
-/*==================================================
-スライダーのためのcss
-===================================*/
-#fv--slider {
-  width: 100%;
-  height: 100vh;
-  /*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
-}
-
 /*----------------------------------------
 reset
 ----------------------------------------*/
@@ -745,6 +1415,7 @@ time, mark, audio, video {
 p,
 a {
   word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 /* HTML5 display-role reset for older browsers */
