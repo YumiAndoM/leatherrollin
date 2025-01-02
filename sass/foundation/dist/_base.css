@@ -771,6 +771,13 @@ header nav ul li a img {
   font-family: "Fredericka the Great", serif;
   font-weight: 400;
   font-style: normal;
+  transition: 0.5s;
+}
+.contactForm form button:hover {
+  background-color: #333333;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  transition: 0.5s;
 }
 @media only screen and (max-width: 700px) {
   .contactForm form button {
@@ -788,6 +795,13 @@ header nav ul li a img {
   .bannerWrapper .contentsBlock ul {
     flex-direction: column;
   }
+}
+.bannerWrapper .contentsBlock ul li a {
+  transition: 0.5s;
+}
+.bannerWrapper .contentsBlock ul li a:hover {
+  opacity: 0.5;
+  transition: 0.5s;
 }
 .bannerWrapper .contentsBlock ul li img {
   width: 100%;
@@ -863,6 +877,19 @@ footer small {
   border: 1px solid #ffffff;
   margin-top: 3rem;
   margin-bottom: 2rem;
+  transition: 0.5s;
+}
+.footer--toContact span {
+  transition: 0.5s;
+}
+.footer--toContact:hover {
+  background-color: #D9D9D9;
+  color: #333333;
+  transition: 0.5s;
+}
+.footer--toContact:hover span {
+  color: #333333;
+  transition: 0.5s;
 }
 @media only screen and (max-width: 700px) {
   .footer--toContact {
