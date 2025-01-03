@@ -31,24 +31,24 @@ body {
 }
 @media only screen and (max-width: 900px) {
   .contentsBlock {
-    width: 80%;
+    width: 90%;
     max-width: 720px;
   }
 }
 @media only screen and (max-width: 700px) {
   .contentsBlock {
-    width: 90%;
+    width: 96%;
     max-width: 630px;
   }
 }
 
 section {
-  margin-bottom: 8rem !important;
+  margin-bottom: 8rem;
   width: 100%;
 }
 @media only screen and (max-width: 700px) {
   section {
-    margin-bottom: 6rem !important;
+    margin-bottom: 6rem;
   }
 }
 section h2 {
@@ -84,6 +84,13 @@ section h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #ffffff;
+}
+#splash-logo .loading--shopName {
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.8rem;
 }
 
 /*------- 画面遷移のためのCSS -------*/
@@ -188,6 +195,62 @@ body.appear #container {
     opacity: 1;
   }
 }
+/*========= 流れるテキスト ===============*/
+/*全共通*/
+.slide-in {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.slide-in_inner {
+  display: inline-block;
+  color: #ffffff;
+}
+
+/*左右のアニメーション*/
+.leftAnime {
+  opacity: 0;
+  /*事前に透過0にして消しておく*/
+}
+
+.slideAnimeLeftRight {
+  animation-name: slideTextX100;
+  animation-duration: 1.4s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes slideTextX100 {
+  from {
+    transform: translateX(-100%);
+    /*要素を左の枠外に移動*/
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    /*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+.slideAnimeRightLeft {
+  animation-name: slideTextX-100;
+  animation-duration: 1.4s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes slideTextX-100 {
+  from {
+    transform: translateX(100%);
+    /*要素を右の枠外に移動*/
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    /*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
 /*------------------header--------------------*/
 header {
   position: fixed;
@@ -195,6 +258,7 @@ header {
   height: 70px;
   background-color: #D9D9D9;
   z-index: 1000;
+  box-shadow: 0px 2px 10px #333333;
 }
 header .flexBlock {
   display: flex;
@@ -248,13 +312,25 @@ naviは_js-nav.scssにあります。
   font-family: "Fredericka the Great", serif;
   font-weight: 400;
   font-style: normal;
+  text-shadow: 2px 2px 10px #333333, -2px 2px 10px #333333, 2px -2px 10px #333333, -2px -2px 10px #333333;
+}
+@media only screen and (max-width: 700px) {
+  .fv--shopName {
+    padding-top: 10rem;
+    font-size: 3rem;
+  }
 }
 .fv--catchCopy {
   text-align: center;
   color: #ffffff;
-  padding-top: calc(100vh - 80vh);
+  padding-top: 1rem;
   height: 70px;
   display: block;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 10px #333333, -2px 2px 10px #333333, 2px -2px 10px #333333, -2px -2px 10px #333333;
 }
 
 /*----スライダーのためのcss-----*/
@@ -264,64 +340,6 @@ naviは_js-nav.scssにあります。
   /*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
 }
 
-/*========= 流れるテキスト ===============*/
-/*全共通*/
-.slide-in {
-  overflow: hidden;
-  display: inline-block;
-}
-
-.slide-in_inner {
-  display: inline-block;
-  color: #ffffff;
-}
-
-/*左右のアニメーション*/
-.leftAnime {
-  opacity: 0;
-  /*事前に透過0にして消しておく*/
-}
-
-.slideAnimeLeftRight {
-  animation-name: slideTextX100;
-  animation-delay: 1.7s;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-}
-
-@keyframes slideTextX100 {
-  from {
-    transform: translateX(-100%);
-    /*要素を左の枠外に移動*/
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    /*要素を元の位置に移動*/
-    opacity: 1;
-  }
-}
-.slideAnimeRightLeft {
-  animation-name: slideTextX-100;
-  animation-delay: 1.7s;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-}
-
-@keyframes slideTextX-100 {
-  from {
-    transform: translateX(100%);
-    /*要素を右の枠外に移動*/
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    /*要素を元の位置に移動*/
-    opacity: 1;
-  }
-}
 /*=== 丸が動いてスクロールを促す ====*/
 /*スクロールダウン全体の場所*/
 .scrolldown {
@@ -515,7 +533,7 @@ naviは_js-nav.scssにあります。
 /*------------------main--onlineshop--------------------*/
 .onlineWrapper {
   position: relative;
-  height: 100% !important;
+  height: 100%;
   display: block;
 }
 .onlineWrapper .contentsBlock {
@@ -692,6 +710,13 @@ naviは_js-nav.scssにあります。
   margin-bottom: 20px;
   /*各画像下に余白をつける*/
   list-style: none;
+}
+.gallery li a {
+  transition: 0.5s;
+}
+.gallery li a:hover {
+  opacity: 0.5;
+  transition: 0.5s;
 }
 
 /*ギャラリー内のイメージは横幅100%にする*/

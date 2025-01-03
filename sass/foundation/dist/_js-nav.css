@@ -9,6 +9,10 @@ nav ul li {
   display: flex;
   align-items: center;
 }
+nav ul li .fa-brands {
+  color: #333333;
+  font-size: 1.6rem;
+}
 nav ul li:nth-of-type(6) {
   background-color: #333333;
   border: 1px solid #D9D9D9;
@@ -36,11 +40,27 @@ nav ul li a {
   font-weight: 400;
   font-style: normal;
 }
+nav ul li a.linkBlack {
+  transition: 0.5s;
+}
+nav ul li a.linkBlack:hover {
+  color: #ffffff !important;
+  background-color: #333333;
+  transition: 0.5s;
+}
+nav ul li a.linkBlack:hover .fa-brands {
+  color: #ffffff;
+  transition: 0.5s;
+}
 nav ul li a img {
   width: 20px;
 }
 
 /*========= ナビゲーションのためのCSS ===============*/
+.p10 {
+  padding: 9px 1rem !important;
+}
+
 @media only screen and (max-width: 900px) {
   #g-nav {
     /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
@@ -102,6 +122,10 @@ nav ul li a img {
 }
 
 /*リストのレイアウト設定*/
+.p14 {
+  padding: 16px 10px;
+}
+
 #g-nav li {
   list-style: none;
   text-align: center;
@@ -110,7 +134,7 @@ nav ul li a img {
 #g-nav li a {
   color: #333;
   text-decoration: none;
-  padding: 10px;
+  padding: 16px 10px;
   display: block;
   text-transform: uppercase;
   letter-spacing: 0.1em;

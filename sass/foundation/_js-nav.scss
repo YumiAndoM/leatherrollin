@@ -1,7 +1,6 @@
 @use "../global" as *;
 
 
-
 nav {
     ul {
     @include displayFlex;
@@ -11,6 +10,11 @@ nav {
         font-size: 0.8rem;
         display: flex;
         align-items: center;
+
+        .fa-brands {
+            color: $cBlack;
+            font-size: 1.6rem;
+        }
         
 
         &:nth-of-type(6) {
@@ -41,6 +45,21 @@ nav {
         padding: 100% 0 0 0.8rem;
         box-sizing: border-box;
         @include fontFredericka;
+
+        &.linkBlack {
+            transition: 0.5s;
+
+            &:hover {
+                color: $cWhite !important;
+                background-color: $cBlack;
+                transition: 0.5s;
+
+                .fa-brands {
+                    color: $cWhite;
+                    transition: 0.5s;
+                }
+            }
+        }
         
 
         img {
@@ -55,7 +74,9 @@ nav {
 
 /*========= ナビゲーションのためのCSS ===============*/
 
-
+.p10 {
+    padding: 9px 1rem !important;
+}
 #g-nav{
     @include max(m) {
     /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
@@ -118,6 +139,10 @@ nav {
 
 /*リストのレイアウト設定*/
 
+.p14 {
+    padding:16px 10px;
+}
+
 #g-nav li{
 	list-style: none;
     text-align: center;
@@ -126,7 +151,7 @@ nav {
 #g-nav li a{
 	color: #333;
 	text-decoration: none;
-	padding:10px;
+	padding:16px 10px;
 	display: block;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
